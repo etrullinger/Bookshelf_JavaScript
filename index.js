@@ -5,7 +5,7 @@ function importBooks() {
         bookshelf.addBook(book);
     }
     return bookshelf;
-};
+}
 
 console.log(importBooks());
 importBooks();

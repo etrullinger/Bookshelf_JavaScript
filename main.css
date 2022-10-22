@@ -1,3 +1,83 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    max-width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    background-image:url(https://wallpapertag.com/wallpaper/full/7/2/8/118913-full-size-white-wood-background-1920x1080.jpg);
+    font-family: 'Playfair Display';
+}
+
+header {
+    height: 2em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5em;
+}
+
+ul {
+    display: flex;
+    flex-flow: wrap;
+    flex-grow: 1;
+    margin-left: 10em;
+    margin-right: 10em;
+    max-width: 80vw;
+}
+
 li {
     list-style-type: none;
-};
+    display: inline;
+    width: 5em;
+    height: 20em;
+    padding: 0.5em;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+h2 {
+    height: 15.95em;
+    font-size: 1em;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+h5 {
+    font-size: 0.5em;
+    padding-right: 0.2em;
+}
+
+li:nth-child(n+0) {
+    background-color:rosybrown;
+}
+
+li:nth-child(2n+0) {
+    background-color: lightslategray;
+}
+
+li:nth-child(3n+0) {
+    background-color:olivedrab;
+}
+
+li:nth-child(4n+0) {
+    background-color: lightblue;
+}
+
+li:nth-child(5n+0) {
+    background-color: darksalmon;
+}
+
+li:nth-child(6n+0) {
+    background-color: burlywood;
+}
+
+li:nth-child(7n+0) {
+    background-color: gainsboro;
+}
