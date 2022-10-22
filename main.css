@@ -3,6 +3,8 @@
     margin: 0;
 }
 
+/* Styling for general body of HTML. Using flex
+display to align header and main content in one column */
 body {
     max-width: 100%;
     min-height: 100%;
@@ -14,6 +16,8 @@ body {
     font-family: 'Playfair Display';
 }
 
+/* Styling for header. Using flex display to
+center the text both horizontally and vertically */
 header {
     height: 2em;
     width: 100%;
@@ -23,6 +27,8 @@ header {
     font-size: 5em;
 }
 
+/* Styling for the "shelf" of books. Using flex 
+display to wrap items according to width of viewport*/
 ul {
     display: flex;
     flex-flow: wrap;
@@ -32,6 +38,7 @@ ul {
     max-width: 80vw;
 }
 
+/* Styling for each book. */
 li {
     list-style-type: none;
     display: inline;
@@ -42,6 +49,11 @@ li {
     border-radius: 10px;
 }
 
+/* Styling for title section of each book. Using
+overflow-wrap to break any parts of a word that's
+overflowing and continue in next line. Also
+hiding any overflow of titles that exceed the set
+height of the title section with overflow: hidden */
 h2 {
     height: 15.95em;
     font-size: 1em;
@@ -49,11 +61,14 @@ h2 {
     overflow: hidden;
 }
 
+/* Styling for author section */
 h5 {
     font-size: 0.5em;
     padding-right: 0.2em;
 }
 
+/* Using nth-child() selector to set 7 different 
+colors for books depending on its position */
 li:nth-child(n+0) {
     background-color:rosybrown;
 }
