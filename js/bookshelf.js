@@ -1,8 +1,10 @@
 /** Separate js file for Bookshelf class 
-which maintains array of books */
+which maintains arrays of books */
 class Bookshelf {
     constructor() {
         this.books = [];
+        /** array of favorite books */
+        this.favoriteBooks = [];
     }
 
     /** addBook function pushes a book into the 
@@ -10,6 +12,22 @@ class Bookshelf {
     addBook(book) {
         this.books.push(book);
         return this.books;
+    }
+
+    /** addFavoriteBook function pushes a selected book 
+    into the array of favorite books and returns the array */
+    addFavoriteBook(book) {
+        this.favoriteBooks.push(book);
+        return this.favoriteBooks;
+    }
+
+    removeFavoriteBook(book) {
+        for (let i = 0; i < this.favoriteBooks.length; i++) {
+            if (this.favoriteBooks[i].title === book.title) {
+                this.favoriteBooks.splice(i, i+1);
+            }
+        }
+        return this.favoriteBooks;
     }
 
     /** This render function creates an element
@@ -22,6 +40,7 @@ class Bookshelf {
     render() {
         const main = document.querySelector('main');
         const bookList = document.createElement('ul');
+        
         /** refactored so map is used to generate DOM elements from array of books */
         this.books.map(book => {
             bookList.append(book.render())

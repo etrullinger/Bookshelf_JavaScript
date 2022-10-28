@@ -18,3 +18,26 @@ function importBooks() {
 the appropriate DOM elements */
 importBooks();
 bookshelf.render();
+
+const favButtons = document.querySelectorAll('.favButton');
+
+for (let i = 0; i < favButtons.length; i++) {
+    favButtons[i].addEventListener('click', (event) => {
+        if (favButtons[i].textContent === 'LIKE') {
+            favButtons[i].textContent = 'UNLIKE';
+            bookshelf.addFavoriteBook(bookshelf.books[i]);
+            return bookshelf.books[i].favorite = true;
+        }
+        if (favButtons[i].textContent === 'UNLIKE') {
+            favButtons[i].textContent = 'LIKE';
+            bookshelf.removeFavoriteBook(bookshelf.books[i]);
+            return bookshelf.books[i].favorite = false;
+        }
+    })
+}
+
+console.log(bookshelf.books);
+console.log(bookshelf.favoriteBooks);
+console.log(bookshelf.favoriteBooks);
+console.log(bookshelf.favoriteBooks);
+console.log(bookshelf.favoriteBooks);

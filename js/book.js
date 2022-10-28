@@ -6,6 +6,8 @@ class Book {
         this.language = language;
         this.subject = subject;
         this.title = title;
+        /** to keep track of whether or not a Book instance is a Favorite */
+        this.favorite = false;
     }
 
     /** render function which creates and returns an element for each book
@@ -21,9 +23,16 @@ class Book {
         /** backticks are used since authors in book-data 
         are enclosed in arrays*/
         bookAuthor.textContent = `${this.author}`;
+
+        /** a button to favorite the book will be created for each book */
+        const bookFavButton = document.createElement('button');
+        bookFavButton.className = 'favButton';
+        bookFavButton.id = `${this.title.replaceAll(' ', '')}`;
+        bookFavButton.textContent = 'LIKE';
         
         book.append(bookTitle);
         book.append(bookAuthor);
+        book.append(bookFavButton);
         
         return book;
     }
