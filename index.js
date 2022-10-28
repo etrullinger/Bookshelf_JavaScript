@@ -19,18 +19,31 @@ the appropriate DOM elements */
 importBooks();
 bookshelf.render();
 
+/** Return NodeList of all favorite buttons */
 const favButtons = document.querySelectorAll('.favButton');
 
+/** Iterate over NodeList of all favorite buttons to add event listener with set of instructions to every button once clicked. 
+If button is pressed to favorite a book, button's display changes to "UNLIKE" to provide option to remove book from favorites. 
+The addFavoriteBook function is called to add book to array of favorite books. The countFavorites function is called to 
+provide new count of favorite books and feeds to the DOM element to display new count. It also returns favorite value of book as true. 
+Likewise if unlike button is clicked, display changes back to "LIKE", book is removed from array of favorite books, 
+new count of favorites books is displayed, and favorite value is returned back to false. */
 for (let i = 0; i < favButtons.length; i++) {
     favButtons[i].addEventListener('click', (event) => {
         if (favButtons[i].textContent === 'LIKE') {
             favButtons[i].textContent = 'UNLIKE';
             bookshelf.addFavoriteBook(bookshelf.books[i]);
+            const numFavorites = document.querySelector('.numFavorites');
+            const count = bookshelf.countFavorites();
+            numFavorites.textContent = `${count} Favorites`
             return bookshelf.books[i].favorite = true;
         }
         if (favButtons[i].textContent === 'UNLIKE') {
             favButtons[i].textContent = 'LIKE';
             bookshelf.removeFavoriteBook(bookshelf.books[i]);
+            const numFavorites = document.querySelector('.numFavorites');
+            const count = bookshelf.countFavorites();
+            numFavorites.textContent = `${count} Favorites`
             return bookshelf.books[i].favorite = false;
         }
     })
