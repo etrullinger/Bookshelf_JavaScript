@@ -22,10 +22,11 @@ class Bookshelf {
     render() {
         const main = document.querySelector('main');
         const bookList = document.createElement('ul');
-        for (let book of this.books) {
-            const bookListElement = book.render();
-            bookList.append(bookListElement);
-        }
+        /** refactored so map is used to generate DOM elements from array of books */
+        this.books.map(book => {
+            bookList.append(book.render())
+        })
+    
         main.replaceChildren(bookList);
     }
 }
