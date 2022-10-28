@@ -1,6 +1,5 @@
-/** bookshelf is declared as a new instance of
-class Bookshelf using bookData from book-data.js */
-const bookshelf = new Bookshelf(bookData);
+/** bookshelf is declared as a new instance of class Bookshelf */
+const bookshelf = new Bookshelf();
 
 /** importBooks function iterates over the array
 of books in bookData and takes an instance of each
