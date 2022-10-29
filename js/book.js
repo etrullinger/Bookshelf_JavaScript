@@ -27,8 +27,11 @@ class Book {
         /** a button to favorite the book will be created for each book */
         const bookFavButton = document.createElement('button');
         bookFavButton.className = 'favButton';
-        bookFavButton.id = `${this.title.replaceAll(' ', '')}`;
-        bookFavButton.textContent = 'LIKE';
+        if (this.favorite === false) {
+            bookFavButton.textContent = 'LIKE';
+        } else {
+            bookFavButton.textContent = 'UNLIKE';
+        }
         
         book.append(bookTitle);
         book.append(bookAuthor);
