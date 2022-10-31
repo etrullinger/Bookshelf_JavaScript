@@ -45,7 +45,7 @@ function favButtons() {
                 bookshelf.removeFavoriteBook(bookshelf.books[i]);
                 const numFavorites = document.querySelector('.numFavorites');
                 const count = bookshelf.countFavorites();
-                numFavorites.textContent = `${count} Favorites`
+                numFavorites.textContent = `${count} favorites`
                 return bookshelf.books[i].favorite = false;
             }
         })
@@ -86,7 +86,7 @@ for (let item of dropDownItems) {
 
 const titleAscending = document.querySelector('#titleAscending');
 titleAscending.addEventListener('click', (event) => {
-    bookshelf.sortTitleAscending();
+    bookshelf.sortTitleAscendingBooks();
     bookshelf.renderSorted();
     favButtons();
 });
@@ -126,7 +126,10 @@ numTopicsDescending.addEventListener('click', (event) => {
     favButtons();
 })
 
-console.log(bookshelf.books);
+console.log(bookshelf.favoriteBooks);
+console.log(bookshelf.favoriteBooks);
+console.log(bookshelf.favoriteBooks);
+console.log(bookshelf.favoriteBooks);
 console.log(bookshelf.favoriteBooks);
 console.log(bookshelf.favoriteBooks);
 console.log(bookshelf.favoriteBooks);

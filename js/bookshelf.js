@@ -26,7 +26,7 @@ class Bookshelf {
     removeFavoriteBook(book) {
         for (let i = 0; i < this.favoriteBooks.length; i++) {
             if (this.favoriteBooks[i].title === book.title) {
-                this.favoriteBooks.splice(i, i+1);
+                this.favoriteBooks.splice(i, 1);
             }
         }
         return this.favoriteBooks;
@@ -38,7 +38,7 @@ class Bookshelf {
         return this.favoriteBooks.reduce(reduceFn, 0);
     }
 
-    sortTitleAscending() {
+    sortTitleAscendingBooks() {
         return this.books.sort((a, b) => {
             var titleA = a.title.toLowerCase();
             var titleB = b.title.toLowerCase();
