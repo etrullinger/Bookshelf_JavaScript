@@ -56,7 +56,8 @@ function favButtons() {
 favButtons();
 
 const dropDownList = document.querySelector('#dropDownList');
-
+/** showHide function displays drop down list when mouse cursor hovers over the div and
+hides the drop down list when mouse cursor exits the div */
 function showHide() {
     if (dropDownList.style.display === 'none') {
         dropDownList.style.display = 'flex';
@@ -69,24 +70,30 @@ function showHide() {
     }
 }
 
+/** showHide function is executed when page is rendered to hide the drop down display until
+mouse hovers over the div */
 showHide();
 
 const sortBy = document.querySelector('.sortBy');
-
+/** Event listeners are added to sortBy div to trigger display or removal of drop down list when
+mouse cursor moves over the div or out of the div */
 sortBy.addEventListener('mouseover', showHide);
 sortBy.addEventListener('mouseout', showHide);
 
 const dropDownItems = document.querySelectorAll('.dropDownItem');
-
+/** for loop used on drop down list items to add event listeners to items which trigger change in styling */
 for (let item of dropDownItems) {
     item.style.fontSize = '0.85em';
     item.addEventListener('mouseover', (event) => item.style.backgroundColor = 'whitesmoke');
     item.addEventListener('mouseout', (event) => item.style.backgroundColor = 'lightgray');
 }
 
+/** Event listeners are added to drop down list item divs which trigger a series of events once clicked on. 
+Relevant sort method will be called and executed to sort array of books. The DOM elements for the sorted array 
+will be rendered and displayed. favButtons function will be called and executed to add the event listeners. */
 const titleAscending = document.querySelector('#titleAscending');
 titleAscending.addEventListener('click', (event) => {
-    bookshelf.sortTitleAscendingBooks();
+    bookshelf.sortTitleAscending();
     bookshelf.renderSorted();
     favButtons();
 });
@@ -125,12 +132,3 @@ numTopicsDescending.addEventListener('click', (event) => {
     bookshelf.renderSorted();
     favButtons();
 })
-
-console.log(bookshelf.favoriteBooks);
-console.log(bookshelf.favoriteBooks);
-console.log(bookshelf.favoriteBooks);
-console.log(bookshelf.favoriteBooks);
-console.log(bookshelf.favoriteBooks);
-console.log(bookshelf.favoriteBooks);
-console.log(bookshelf.favoriteBooks);
-console.log(bookshelf.favoriteBooks);

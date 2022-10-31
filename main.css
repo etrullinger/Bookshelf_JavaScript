@@ -31,6 +31,7 @@ header {
 /* Styling for numFavorites div of header */
 .numFavorites {
     font-size: 50%;
+    font-style: italic;
 }
 
 /* Styling for main section of body */
@@ -38,12 +39,14 @@ main {
     display: flex;
 }
 
+/* Styling for sort drop down div */
 .sortDropDown {
     margin-left: 1em;
     margin-top: 3em;
     position: fixed;
 }
 
+/* Styling for sort by div */
 .sortBy {
     width: 10em;
     text-align: center;
@@ -55,6 +58,7 @@ main {
     padding-bottom: 0.5em;
 }
 
+/* Styling for sort by hover */
 .sortBy:hover {
     background-color: lightgray;
 }
@@ -87,7 +91,7 @@ overflowing and continue in next line. Also
 hiding any overflow of titles that exceed the set
 height of the title section with overflow: hidden */
 h2 {
-    height: 15.95em;
+    height: 14.55em;
     font-size: 1em;
     overflow-wrap: break-word;
     overflow: hidden;
@@ -95,8 +99,22 @@ h2 {
 
 /* Styling for author section */
 h5 {
+    height: 5em;
     font-size: 0.5em;
     padding-right: 0.2em;
+    padding-top: 0.2em;
+}
+
+/* Styling for like/unlike buttons */
+.favButton {
+    position: relative;
+    top: 1em;
+    font-family: cambria;
+    font-weight: bold;
+    background-color: gainsboro;
+    width: 100%;
+    border-radius: 5em;
+    border: 2px solid ghostwhite;
 }
 
 /* Using nth-child() selector to set 7 different 

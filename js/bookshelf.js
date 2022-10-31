@@ -7,21 +7,21 @@ class Bookshelf {
         this.favoriteBooks = [];
     }
 
-    /** addBook function pushes a book into the 
+    /** addBook method pushes a book into the 
     array of books and returns the array */
     addBook(book) {
         this.books.push(book);
         return this.books;
     }
 
-    /** addFavoriteBook function pushes a selected book 
+    /** addFavoriteBook method pushes a selected book 
     into the array of favorite books and returns the array */
     addFavoriteBook(book) {
         this.favoriteBooks.push(book);
         return this.favoriteBooks;
     }
 
-    /** removeFavoriteBook function iterates over array of favorite books
+    /** removeFavoriteBook method iterates over array of favorite books
     and removes book with same title as the selected book and returns the revised array */
     removeFavoriteBook(book) {
         for (let i = 0; i < this.favoriteBooks.length; i++) {
@@ -32,13 +32,15 @@ class Bookshelf {
         return this.favoriteBooks;
     }
 
-    /** countFavorites function uses reduce method to count and return the number of favorite books */
+    /** countFavorites method uses reduce method to count and return the number of favorite books */
     countFavorites() {
         const reduceFn = (acc) => acc + 1;
         return this.favoriteBooks.reduce(reduceFn, 0);
     }
 
-    sortTitleAscendingBooks() {
+    /** sortTitleAscending method uses sort method to sort array of books by title 
+    in ascending order and return the same array */
+    sortTitleAscending() {
         return this.books.sort((a, b) => {
             var titleA = a.title.toLowerCase();
             var titleB = b.title.toLowerCase();
@@ -52,6 +54,8 @@ class Bookshelf {
         });
     }
 
+    /** sortTitleDescending method uses sort method to sort array of books by title 
+    in descending order and return the same array */
     sortTitleDescending() {
         return this.books.sort((a, b) => {
             var titleA = a.title.toLowerCase();
@@ -66,6 +70,8 @@ class Bookshelf {
         });
     }
 
+    /** sortAuthorAscending method uses sort method to sort array of books by author 
+    in ascending order and return the same array */
     sortAuthorAscending() {
         return this.books.sort((a, b) => {
             if (a.author < b.author) {
@@ -78,6 +84,8 @@ class Bookshelf {
         });
     }
 
+    /** sortAuthorDescending method uses sort method to sort array of books by author 
+    in descending order and return the same array */
     sortAuthorDescending() {
         return this.books.sort((a, b) => {
             if (a.author > b.author) {
@@ -90,6 +98,8 @@ class Bookshelf {
         });
     }
 
+    /** sortNumTopicsAscending method uses sort method to sort array of books by number 
+    of topics in ascending order and return the same array */
     sortNumTopicsAscending() {
         return this.books.sort((a, b) => {
             const reduceFn = (acc) => acc + 1;
@@ -99,6 +109,8 @@ class Bookshelf {
         })
     }
 
+    /** sortNumTopicsDescending method uses sort method to sort array of books by number 
+    of topics in descending order and return the same array */
     sortNumTopicsDescending() {
         return this.books.sort((a, b) => {
             const reduceFn = (acc) => acc + 1;
@@ -133,7 +145,8 @@ class Bookshelf {
         this.books.map(book => {
             bookList.append(book.render())
         })
-
+        
+        /** DOM elements created to display the sort by feature */
         const sortDropDown = document.createElement('div');
         sortDropDown.className = 'sortDropDown';
         
@@ -186,19 +199,14 @@ class Bookshelf {
         main.replaceChildren(bookList, sortDropDown);
     }
 
+    /** renderSorted function to render DOM elements for sorted array of books 
+    and replace existing DOM elements for books */
     renderSorted() {
         const main = document.querySelector('main');
         const bookList = document.createElement('ul');
         this.books.map(book => {
             bookList.append(book.render())
         })
-
-        const favButtons = document.querySelectorAll('.favButton');
-        for (let i = 0; i < favButtons.length; i++) {
-            if (this.books[i].favorite === true) {
-                favButtons[i].textContent = 'UNLIKE';
-            }
-        }
 
         main.replaceChild(bookList, main.firstElementChild);
     }

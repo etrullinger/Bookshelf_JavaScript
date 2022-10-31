@@ -24,7 +24,9 @@ class Book {
         are enclosed in arrays*/
         bookAuthor.textContent = `${this.author}`;
 
-        /** a button to favorite the book will be created for each book */
+        /** a button to favorite the book will be created for each book.
+        The if else statement is incorporated for when DOM elements are
+        recreated for sorted books.*/
         const bookFavButton = document.createElement('button');
         bookFavButton.className = 'favButton';
         if (this.favorite === false) {
