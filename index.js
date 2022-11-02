@@ -132,3 +132,29 @@ numTopicsDescending.addEventListener('click', (event) => {
     bookshelf.renderSorted();
     favButtons();
 })
+
+const titleInput = document.querySelector('#titleInput');
+const authorLastNameInput = document.querySelector('#authorLastNameInput');
+const authorFirstNameInput = document.querySelector('#authorFirstNameInput');
+const subjectInput = document.querySelector('#subjectInput');
+const languageInput = document.querySelector('#languageInput');
+const addBookButton = document.querySelector('#addBookButton');
+
+/** Event listener is added to Add Book button to add book submitted by user to the book of arrays.
+DOM elements for the books are rendered again to account for the added book and the favorite button feature
+is added as well. First letters of author first and last name are capitalized while the rest of the letters
+are lower cased before book is rendered to maintain consistency for sorting purposes. Once added, the input values 
+for all fields will return back to empty. */
+addBookButton.addEventListener('click', (event) => {
+    const lastNameCapitalized = authorLastNameInput.value.charAt(0).toUpperCase() + authorLastNameInput.value.slice(1).toLowerCase();
+    const firstNameCapitalized = authorFirstNameInput.value.charAt(0).toUpperCase() + authorFirstNameInput.value.slice(1).toLowerCase();
+    const newBook = new Book([`${lastNameCapitalized}`, ' ' + `${firstNameCapitalized}`], `${languageInput.value}`, [`${subjectInput.value}`], `${titleInput.value}`);
+    bookshelf.addBook(newBook);
+    authorLastNameInput.value = '';
+    authorFirstNameInput.value = '';
+    languageInput.value = '';
+    subjectInput.value = '';
+    titleInput.value = '';
+    bookshelf.renderSorted();
+    favButtons();
+})
