@@ -34,6 +34,7 @@ function favButtons() {
         favButtons[i].addEventListener('click', (event) => {
             if (favButtons[i].textContent === 'LIKE') {
                 favButtons[i].textContent = 'UNLIKE';
+                favButtons[i].style.backgroundColor = 'darkgoldenrod';
                 bookshelf.addFavoriteBook(bookshelf.books[i]);
                 const numFavorites = document.querySelector('#numFavorites');
                 const count = bookshelf.countFavorites();
@@ -42,6 +43,7 @@ function favButtons() {
             }
             if (favButtons[i].textContent === 'UNLIKE') {
                 favButtons[i].textContent = 'LIKE';
+                favButtons[i].style.backgroundColor = 'gainsboro';
                 bookshelf.removeFavoriteBook(bookshelf.books[i]);
                 const numFavorites = document.querySelector('#numFavorites');
                 const count = bookshelf.countFavorites();
@@ -90,12 +92,14 @@ for (let item of dropDownItems) {
 
 /** Event listeners are added to drop down list item divs which trigger a series of events once clicked on. 
 Relevant sort method will be called and executed to sort array of books. The DOM elements for the sorted array 
-will be rendered and displayed. favButtons function will be called and executed to add the event listeners. */
+will be rendered and displayed. favButtons function as well as the commentButtonEvent function will be called 
+and executed to add the event listeners to respective buttons. */
 const titleAscending = document.querySelector('#titleAscending');
 titleAscending.addEventListener('click', (event) => {
     bookshelf.sortTitleAscending();
     bookshelf.renderSorted();
     favButtons();
+    commentButtonEvent();
 });
 
 const titleDescending = document.querySelector('#titleDescending');
@@ -103,6 +107,7 @@ titleDescending.addEventListener('click', (event) => {
     bookshelf.sortTitleDescending();
     bookshelf.renderSorted();
     favButtons();
+    commentButtonEvent();
 })
 
 const authorAscending = document.querySelector('#authorAscending');
@@ -110,6 +115,7 @@ authorAscending.addEventListener('click', (event) => {
     bookshelf.sortAuthorAscending();
     bookshelf.renderSorted();
     favButtons();
+    commentButtonEvent();
 })
 
 const authorDescending = document.querySelector('#authorDescending');
@@ -117,6 +123,7 @@ authorDescending.addEventListener('click', (event) => {
     bookshelf.sortAuthorDescending();
     bookshelf.renderSorted();
     favButtons();
+    commentButtonEvent();
 })
 
 const numTopicsAscending = document.querySelector('#numTopicsAscending');
@@ -124,6 +131,7 @@ numTopicsAscending.addEventListener('click', (event) => {
     bookshelf.sortNumTopicsAscending();
     bookshelf.renderSorted();
     favButtons();
+    commentButtonEvent();
 })
 
 const numTopicsDescending = document.querySelector('#numTopicsDescending');
@@ -131,6 +139,7 @@ numTopicsDescending.addEventListener('click', (event) => {
     bookshelf.sortNumTopicsDescending();
     bookshelf.renderSorted();
     favButtons();
+    commentButtonEvent();
 })
 
 const titleInput = document.querySelector('#titleInput');
@@ -157,8 +166,15 @@ addBookButton.addEventListener('click', (event) => {
     titleInput.value = '';
     bookshelf.renderSorted();
     favButtons();
+    commentButtonEvent();
 })
 
+/** commentButtonEvent function adds event listeners to all comment buttons. 
+Once button is clicked comment box and submit button appears. Styling of specific book element
+is also altered to allow room for the comment box. Comment box is limited to 280 characters and 
+must have at least 1 character inputted in order to submit. If same comment button is clicked again 
+comment box and submit button disappears. removeCommentBox function is also added before other events 
+are triggered so that only the target comment box will appear at a time.*/
 function commentButtonEvent() {
     const books = document.querySelectorAll('.bookDOM');
     const commentButtons = document.querySelectorAll('.commentButton');
@@ -167,6 +183,7 @@ function commentButtonEvent() {
     for (let i = 0; i < commentButtons.length; i++) {
         commentButtons[i].addEventListener('click', (event) => {
             if (commentBoxes[i].style.display === 'none') {
+                removeCommentBox();
                 commentButtons[i].style.backgroundColor = 'darkgray';
                 commentBoxes[i].style.display = 'flex';
                 commentBoxes[i].style.marginTop = '1em';
@@ -180,10 +197,7 @@ function commentButtonEvent() {
                 submitButtons[i].textContent = 'Submit';
                 books[i].style.marginBottom = '6em';
             } else {
-                commentBoxes[i].style.display = 'none';
-                submitButtons[i].style.display = 'none';
-                books[i].style.marginBottom = '0';
-                commentButtons[i].style.backgroundColor = 'gainsboro';
+                removeCommentBox()
             }
         })
     }
@@ -191,3 +205,19 @@ function commentButtonEvent() {
 }
 
 commentButtonEvent();
+
+/** removeCommentBox function sets all comment box displays as none, submit buttons as hidden, and sets
+styling of book elements and comment buttons back to original styling. */
+function removeCommentBox() {
+    const books = document.querySelectorAll('.bookDOM');
+    const commentButtons = document.querySelectorAll('.commentButton');
+    const commentBoxes = document.querySelectorAll('.commentBox');
+    const submitButtons = document.querySelectorAll('.submitButton');
+    for (let i = 0; i < commentButtons.length; i++) {
+        commentBoxes[i].style.display = 'none';
+        submitButtons[i].style.display = 'none';
+        books[i].style.marginBottom = '0';
+        commentButtons[i].style.backgroundColor = 'gainsboro';
+    }
+    return commentButtons;
+}

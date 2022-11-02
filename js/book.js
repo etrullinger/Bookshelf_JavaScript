@@ -32,8 +32,10 @@ class Book {
         bookFavButton.className = 'favButton';
         if (this.favorite === false) {
             bookFavButton.textContent = 'LIKE';
+            bookFavButton.style.backgroundColor = 'gainsboro';
         } else {
             bookFavButton.textContent = 'UNLIKE';
+            bookFavButton.style.backgroundColor = 'darkgoldenrod';
         }
 
         /** A button to comment the book will be created for each book. */
