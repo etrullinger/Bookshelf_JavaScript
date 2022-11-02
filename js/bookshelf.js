@@ -130,13 +130,6 @@ class Bookshelf {
     render() {
         const header = document.querySelector('header');
         
-        /** DOM element created to display total number of favorite books */
-        const numFavorites = document.createElement('div');
-        numFavorites.className = 'numFavorites';
-        numFavorites.textContent = '0 favorites';
-
-        header.append(numFavorites);
-        
         const main = document.querySelector('main');
 
         const bookList = document.createElement('ul');
@@ -146,10 +139,16 @@ class Bookshelf {
             bookList.append(book.render())
         })
         
-        /** DOM elements created to display the sort by feature */
-        const sortDropDown = document.createElement('div');
-        sortDropDown.className = 'sortDropDown';
+        /** DOM element created to display section for favorites and sort features */
+        const mainLeft = document.createElement('div');
+        mainLeft.className = 'mainLeft';
+
+        /** DOM element created to display total number of favorite books */
+        const numFavorites = document.createElement('div');
+        numFavorites.className = 'numFavorites';
+        numFavorites.textContent = '0 favorites';
         
+        /** DOM elements created to display the sort by feature */
         const sortBy = document.createElement('div');
         sortBy.className = 'sortBy';
         sortBy.textContent = 'SORT';
@@ -194,9 +193,11 @@ class Bookshelf {
         dropDownList.append(numTopicsAscending);
         dropDownList.append(numTopicsDescending);
         sortBy.append(dropDownList);
-        sortDropDown.append(sortBy);
+
+        mainLeft.append(numFavorites);
+        mainLeft.append(sortBy);
     
-        main.replaceChildren(bookList, sortDropDown);
+        main.replaceChildren(bookList, mainLeft);
     }
 
     /** renderSorted function to render DOM elements for sorted array of books 
