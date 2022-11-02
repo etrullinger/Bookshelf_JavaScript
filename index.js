@@ -158,3 +158,36 @@ addBookButton.addEventListener('click', (event) => {
     bookshelf.renderSorted();
     favButtons();
 })
+
+function commentButtonEvent() {
+    const books = document.querySelectorAll('.bookDOM');
+    const commentButtons = document.querySelectorAll('.commentButton');
+    const commentBoxes = document.querySelectorAll('.commentBox');
+    const submitButtons = document.querySelectorAll('.submitButton');
+    for (let i = 0; i < commentButtons.length; i++) {
+        commentButtons[i].addEventListener('click', (event) => {
+            if (commentBoxes[i].style.display === 'none') {
+                commentButtons[i].style.backgroundColor = 'darkgray';
+                commentBoxes[i].style.display = 'flex';
+                commentBoxes[i].style.marginTop = '1em';
+                commentBoxes[i].rows = '4';
+                commentBoxes[i].cols = '40';
+                commentBoxes[i].maxLength = '280';
+                commentBoxes[i].style.resize = 'horizontal';
+                commentBoxes[i].required;
+                commentBoxes[i].placeholder = 'Comment here';
+                submitButtons[i].style.display = 'flex';
+                submitButtons[i].textContent = 'Submit';
+                books[i].style.marginBottom = '6em';
+            } else {
+                commentBoxes[i].style.display = 'none';
+                submitButtons[i].style.display = 'none';
+                books[i].style.marginBottom = '0';
+                commentButtons[i].style.backgroundColor = 'gainsboro';
+            }
+        })
+    }
+    return commentButtons;
+}
+
+commentButtonEvent();

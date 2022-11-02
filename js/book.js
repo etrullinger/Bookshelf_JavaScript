@@ -25,7 +25,7 @@ class Book {
         are enclosed in arrays*/
         bookAuthor.textContent = `${this.author}`;
 
-        /** a button to favorite the book will be created for each book.
+        /** A button to favorite the book will be created for each book.
         The if else statement is incorporated for when DOM elements are
         recreated for sorted books.*/
         const bookFavButton = document.createElement('button');
@@ -35,10 +35,31 @@ class Book {
         } else {
             bookFavButton.textContent = 'UNLIKE';
         }
+
+        /** A button to comment the book will be created for each book. */
+        const commentButton = document.createElement('button');
+        commentButton.className = 'commentButton';
+        commentButton.textContent = 'Comment';
+
+        /** A comment box will be created along with comment button but will be 
+        hidden until user clicks the comment button. */
+        const commentBox = document.createElement('textarea');
+        commentBox.className = 'commentBox';
+        commentBox.style.display = 'none';
+        
+        /** A submit button will be created along with the comment button and comment 
+        box to allow user to submit comment and add it to Book. This will also be 
+        hidden until user clicks comment button. */
+        const submitButton = document.createElement('button');
+        submitButton.className = 'submitButton';
+        submitButton.style.display = 'none';
         
         book.append(bookTitle);
         book.append(bookAuthor);
         book.append(bookFavButton);
+        book.append(commentButton);
+        book.append(commentBox);
+        book.append(submitButton);
         
         return book;
     }
