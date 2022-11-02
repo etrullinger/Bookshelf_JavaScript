@@ -35,17 +35,17 @@ function favButtons() {
             if (favButtons[i].textContent === 'LIKE') {
                 favButtons[i].textContent = 'UNLIKE';
                 bookshelf.addFavoriteBook(bookshelf.books[i]);
-                const numFavorites = document.querySelector('.numFavorites');
+                const numFavorites = document.querySelector('#numFavorites');
                 const count = bookshelf.countFavorites();
-                numFavorites.textContent = `${count} favorites`
+                numFavorites.textContent = `${count} LIKED`
                 return bookshelf.books[i].favorite = true;
             }
             if (favButtons[i].textContent === 'UNLIKE') {
                 favButtons[i].textContent = 'LIKE';
                 bookshelf.removeFavoriteBook(bookshelf.books[i]);
-                const numFavorites = document.querySelector('.numFavorites');
+                const numFavorites = document.querySelector('#numFavorites');
                 const count = bookshelf.countFavorites();
-                numFavorites.textContent = `${count} favorites`
+                numFavorites.textContent = `${count} LIKED`
                 return bookshelf.books[i].favorite = false;
             }
         })
@@ -74,7 +74,7 @@ function showHide() {
 mouse hovers over the div */
 showHide();
 
-const sortBy = document.querySelector('.sortBy');
+const sortBy = document.querySelector('#sortBy');
 /** Event listeners are added to sortBy div to trigger display or removal of drop down list when
 mouse cursor moves over the div or out of the div */
 sortBy.addEventListener('mouseover', showHide);

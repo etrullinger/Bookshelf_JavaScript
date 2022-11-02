@@ -128,30 +128,20 @@ class Bookshelf {
     from the render function under class Book 
     and appends it to the element created for list of books. */
     render() {
-        const header = document.querySelector('header');
-        
-        const main = document.querySelector('main');
-
-        const bookList = document.createElement('ul');
+        const bookList = document.querySelector('#bookList')
         
         /** refactored so map is used to generate DOM elements from array of books */
         this.books.map(book => {
             bookList.append(book.render())
         })
-        
-        /** DOM element created to display section for favorites and sort features */
-        const mainLeft = document.createElement('div');
-        mainLeft.className = 'mainLeft';
 
-        /** DOM element created to display total number of favorite books */
-        const numFavorites = document.createElement('div');
-        numFavorites.className = 'numFavorites';
-        numFavorites.textContent = '0 favorites';
-        
-        /** DOM elements created to display the sort by feature */
-        const sortBy = document.createElement('div');
-        sortBy.className = 'sortBy';
-        sortBy.textContent = 'SORT';
+        /** DOM element to display total number of favorite books */
+        const numFavorites = document.querySelector('#numFavorites')
+        numFavorites.textContent = '0 LIKED';
+
+        /** DOM elements created to display the sort by feature  with drop down list */
+        const sortBy = document.querySelector('#sortBy');
+        sortBy.textContent = 'Sort';
 
         const dropDownList = document.createElement('div');
         dropDownList.id = 'dropDownList';
@@ -193,11 +183,6 @@ class Bookshelf {
         dropDownList.append(numTopicsAscending);
         dropDownList.append(numTopicsDescending);
         sortBy.append(dropDownList);
-
-        mainLeft.append(numFavorites);
-        mainLeft.append(sortBy);
-    
-        main.replaceChildren(bookList, mainLeft);
     }
 
     /** renderSorted function to render DOM elements for sorted array of books 
@@ -205,6 +190,7 @@ class Bookshelf {
     renderSorted() {
         const main = document.querySelector('main');
         const bookList = document.createElement('ul');
+        bookList.id = 'bookList';
         this.books.map(book => {
             bookList.append(book.render())
         })

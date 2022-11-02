@@ -15,6 +15,7 @@ class Book {
     for each book */
     render() {
         const book = document.createElement('li');
+        book.className = 'bookDOM';
         
         const bookTitle = document.createElement('h2');
         bookTitle.textContent = this.title;

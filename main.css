@@ -28,51 +28,85 @@ header {
     font-size: 3em;
 }
 
-#inputFields {
-    height: 2em;
-}
-
 /* Styling for main section of body */
 main {
     display: flex;
 }
 
-/* Styling for sort drop down div */
-.mainLeft {
+footer {
+    height: 5em;
+    margin-top: 2em;
+    font-weight: bold;
+    padding-top: 3em;
+}
+
+/* Styling for main left div */
+#mainLeft {
     margin-left: 1em;
-    margin-top: 1em;
     position: fixed;
 }
 
-/* Styling for numFavorites div of header */
-.numFavorites {
+/* Styling for numFavorites div */
+#numFavorites {
     width: 8.25em;
     height: 2em;
     font-size: 1.25em;
     font-weight: bold;
     text-align: center;
+    margin-bottom: 0.5em;
+}
+
+/* Styling for navigation items and links */
+.navItem {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5em;
+}
+
+a {
+    color: black;
+    width: 10em;
+    text-align: center;
+    font-weight: bold;
+    border: 2px dotted ghostwhite;
+    border-radius: 5%;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    background-color: lightgray;
+    opacity: 0.8;
+}
+
+a:hover {
+    background-color: lightgray;
+}
+
+a:link {
+    text-decoration: none;
 }
 
 /* Styling for sort by div */
-.sortBy {
+#sortBy {
     width: 10em;
     text-align: center;
     font-weight: bold;
     cursor: pointer;
     border: 2px dotted ghostwhite;
-    border-radius: 10%;
+    border-radius: 5%;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
+    background-color: lightgray;
+    opacity: 0.8;
 }
 
 /* Styling for sort by hover */
-.sortBy:hover {
+#sortBy:hover {
     background-color: lightgray;
 }
 
 /* Styling for the "shelf" of books. Using flex 
 display to wrap items according to width of viewport*/
-ul {
+#bookList {
     display: flex;
     flex-flow: wrap;
     flex-grow: 1;
@@ -82,7 +116,7 @@ ul {
 }
 
 /* Styling for each book. */
-li {
+.bookDOM {
     list-style-type: none;
     display: inline;
     width: 5em;
@@ -126,30 +160,30 @@ h5 {
 
 /* Using nth-child() selector to set 7 different 
 colors for books depending on its position */
-li:nth-child(n+0) {
+.bookDOM:nth-child(n+0) {
     background-color:rosybrown;
 }
 
-li:nth-child(2n+0) {
+.bookDOM:nth-child(2n+0) {
     background-color: lightslategray;
 }
 
-li:nth-child(3n+0) {
+.bookDOM:nth-child(3n+0) {
     background-color:olivedrab;
 }
 
-li:nth-child(4n+0) {
+.bookDOM:nth-child(4n+0) {
     background-color: lightblue;
 }
 
-li:nth-child(5n+0) {
+.bookDOM:nth-child(5n+0) {
     background-color: darksalmon;
 }
 
-li:nth-child(6n+0) {
+.bookDOM:nth-child(6n+0) {
     background-color: burlywood;
 }
 
-li:nth-child(7n+0) {
+.bookDOM:nth-child(7n+0) {
     background-color: gainsboro;
 }
