@@ -1,18 +1,20 @@
 /** Separate js file for Book class 
-which keeps track of author, language, subject, and title*/
+which keeps track of author, language, subject, and title */
 class Book {
     constructor(author, language, subject, title) {
         this.author = author;
         this.language = language;
         this.subject = subject;
         this.title = title;
-        /** to keep track of whether or not a Book instance is a Favorite */
+        /** To keep track of whether or not a Book instance is a Favorite. */
         this.favorite = false;
+        /** Array of comments added to store submitted comments by users for each book. */
+        this.comment = [];
     }
 
-    /** render function which creates and returns an element for each book
+    /** Render function which creates and returns an element for each book
     and also creates child elements to display the title and author
-    for each book */
+    for each book. */
     render() {
         const book = document.createElement('li');
         book.className = 'bookDOM';
@@ -21,8 +23,8 @@ class Book {
         bookTitle.textContent = this.title;
         
         const bookAuthor = document.createElement('h5');
-        /** backticks are used since authors in book-data 
-        are enclosed in arrays*/
+        /** Backticks are used since authors in book-data 
+        are enclosed in arrays. */
         bookAuthor.textContent = `${this.author}`;
 
         /** A button to favorite the book will be created for each book.
@@ -47,6 +49,7 @@ class Book {
         hidden until user clicks the comment button. */
         const commentBox = document.createElement('textarea');
         commentBox.className = 'commentBox';
+        commentBox.name = 'comment';
         commentBox.style.display = 'none';
         
         /** A submit button will be created along with the comment button and comment 

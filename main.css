@@ -4,7 +4,7 @@
 }
 
 /* Styling for general body of HTML. Using flex
-display to align header and main content in one column */
+display to align header and main content in one column. */
 body {
     max-width: 100%;
     min-height: 100%;
@@ -17,7 +17,7 @@ body {
 }
 
 /* Styling for header. Using flex display to
-center the text both horizontally and vertically */
+center the text both horizontally and vertically. */
 header {
     width: 100%;
     display: flex;
@@ -28,12 +28,12 @@ header {
     padding-top: 3vh;
 }
 
-/* Styling for main section of body */
+/* Styling for main section of body. */
 main {
     display: flex;
 }
 
-/* Styling for footer section of body */
+/* Styling for footer section of body. */
 footer {
     height: 5em;
     margin-top: 2em;
@@ -41,19 +41,19 @@ footer {
     padding-top: 3em;
 }
 
-/* Styling for user input section to add books */
+/* Styling for user input section to add books. */
 #inputFields {
     display: inline-block;
     padding: 0.5em;
 }
 
-/* Styling for main left section */
+/* Styling for main left section. */
 #mainLeft {
     margin-left: 1em;
     position: fixed;
 }
 
-/* Styling for numFavorites div */
+/* Styling for numFavorites div. */
 #numFavorites {
     width: 8.25em;
     height: 2em;
@@ -63,7 +63,7 @@ footer {
     margin-bottom: 0.5em;
 }
 
-/* Styling for navigation items and links */
+/* Styling for navigation bar divs. */
 .navItem {
     list-style: none;
     display: flex;
@@ -71,6 +71,7 @@ footer {
     margin-bottom: 0.5em;
 }
 
+/* Styling for navigation links. */
 a {
     color: black;
     width: 10em;
@@ -84,15 +85,16 @@ a {
     opacity: 0.8;
 }
 
-a:hover {
-    background-color: lightgray;
-}
-
 a:link {
     text-decoration: none;
 }
 
-/* Styling for sort by div */
+/* Styling for links when cursor hovers over. */
+a:hover {
+    background-color: lightgray;
+}
+
+/* Styling for sort by div. */
 #sortBy {
     width: 10em;
     text-align: center;
@@ -106,13 +108,13 @@ a:link {
     opacity: 0.8;
 }
 
-/* Styling for sort by hover */
+/* Styling for sort by hover. */
 #sortBy:hover {
     background-color: lightgray;
 }
 
 /* Styling for the "shelf" of books. Using flex 
-display to wrap items according to width of viewport*/
+display to wrap items according to width of viewport. */
 #bookList {
     display: flex;
     flex-flow: wrap;
@@ -137,7 +139,7 @@ display to wrap items according to width of viewport*/
 overflow-wrap to break any parts of a word that's
 overflowing and continue in next line. Also
 hiding any overflow of titles that exceed the set
-height of the title section with overflow: hidden */
+height of the title section with overflow: hidden. */
 h2 {
     height: 14.55em;
     font-size: 1em;
@@ -145,7 +147,7 @@ h2 {
     overflow: hidden;
 }
 
-/* Styling for author section */
+/* Styling for author sections. */
 h5 {
     height: 5em;
     font-size: 0.5em;
@@ -153,7 +155,7 @@ h5 {
     padding-top: 0.2em;
 }
 
-/* Styling for like/unlike buttons */
+/* Styling for like/unlike buttons. */
 .favButton {
     font-family: cambria;
     font-weight: bold;

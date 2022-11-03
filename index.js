@@ -1,11 +1,11 @@
-/** bookshelf is declared as a new instance of class Bookshelf */
+/** bookshelf is declared as a new instance of class Bookshelf. */
 const bookshelf = new Bookshelf();
 
 /** importBooks function iterates over the array
 of books in bookData and takes an instance of each
 book and adds it to the instance of class Bookshelf
 through the addBook function and returns the instance
-of Bookshelf */
+of Bookshelf. */
 function importBooks() {
     for (let i = 0; i < bookData.length; i++) {
         const book = new Book(bookData[i].author, bookData[i].language, bookData[i].subject, bookData[i].title);
@@ -15,7 +15,7 @@ function importBooks() {
 }
 
 /** Execute importBooks function and render the
-the appropriate DOM elements */
+the appropriate DOM elements. */
 importBooks();
 bookshelf.render();
 
@@ -54,12 +54,12 @@ function favButtons() {
     }
 }
 
-/** Execute favButtons function to add event listeners to buttons on imported books */
+/** Execute favButtons function to add event listeners to buttons on imported books. */
 favButtons();
 
 const dropDownList = document.querySelector('#dropDownList');
 /** showHide function displays drop down list when mouse cursor hovers over the div and
-hides the drop down list when mouse cursor exits the div */
+hides the drop down list when mouse cursor exits the div. */
 function showHide() {
     if (dropDownList.style.display === 'none') {
         dropDownList.style.display = 'flex';
@@ -73,17 +73,17 @@ function showHide() {
 }
 
 /** showHide function is executed when page is rendered to hide the drop down display until
-mouse hovers over the div */
+mouse hovers over the div. */
 showHide();
 
 const sortBy = document.querySelector('#sortBy');
 /** Event listeners are added to sortBy div to trigger display or removal of drop down list when
-mouse cursor moves over the div or out of the div */
+mouse cursor moves over the div or out of the div. */
 sortBy.addEventListener('mouseover', showHide);
 sortBy.addEventListener('mouseout', showHide);
 
 const dropDownItems = document.querySelectorAll('.dropDownItem');
-/** for loop used on drop down list items to add event listeners to items which trigger change in styling */
+/** for loop used on drop down list items to add event listeners to items which trigger change in styling. */
 for (let item of dropDownItems) {
     item.style.fontSize = '0.85em';
     item.addEventListener('mouseover', (event) => item.style.backgroundColor = 'whitesmoke');
@@ -174,7 +174,8 @@ Once button is clicked comment box and submit button appears. Styling of specifi
 is also altered to allow room for the comment box. Comment box is limited to 280 characters and 
 must have at least 1 character inputted in order to submit. If same comment button is clicked again 
 comment box and submit button disappears. removeCommentBox function is also added before other events 
-are triggered so that only the target comment box will appear at a time.*/
+are triggered so that only the target comment box will appear at a time. submitButtonEvent function is
+called and executed to add event listener to the submit button. */
 function commentButtonEvent() {
     const books = document.querySelectorAll('.bookDOM');
     const commentButtons = document.querySelectorAll('.commentButton');
@@ -191,19 +192,19 @@ function commentButtonEvent() {
                 commentBoxes[i].cols = '40';
                 commentBoxes[i].maxLength = '280';
                 commentBoxes[i].style.resize = 'horizontal';
-                commentBoxes[i].required;
                 commentBoxes[i].placeholder = 'Comment here';
                 submitButtons[i].style.display = 'flex';
                 submitButtons[i].textContent = 'Submit';
                 books[i].style.marginBottom = '6em';
+                submitButtonEvent();
             } else {
-                removeCommentBox()
+                removeCommentBox();
             }
         })
     }
-    return commentButtons;
 }
 
+/** Execute commentButtonEvent function to add event listeners to comment buttons once rendered. */
 commentButtonEvent();
 
 /** removeCommentBox function sets all comment box displays as none, submit buttons as hidden, and sets
@@ -219,5 +220,30 @@ function removeCommentBox() {
         books[i].style.marginBottom = '0';
         commentButtons[i].style.backgroundColor = 'gainsboro';
     }
-    return commentButtons;
 }
+
+/** submitButtonEvent function iterates over buttons and adds event listener to the button
+that is displayed. User also can only submit if there is at least one character inputted in the 
+comment box. Once button is clicked comment is pushed to the array of comments for that particular book
+and comment box is reset to empty. */
+function submitButtonEvent() {
+    const commentBoxes = document.querySelectorAll('.commentBox');
+    const submitButtons = document.querySelectorAll('.submitButton');
+    for (let i = 0; i < submitButtons.length; i++) {
+        submitButtons[i].addEventListener('click', (event) => {
+            if (commentBoxes[i].style.display === 'flex' && commentBoxes[i].value.length > 0) {
+                const comment = `${commentBoxes[i].value}`;
+                commentBoxes[i].value = '';
+                return bookshelf.books[i].comment.push(comment);
+            }
+        })
+    }
+}
+
+
+console.log(bookshelf.books);
+console.log(bookshelf.books);
+console.log(bookshelf.books);
+console.log(bookshelf.favoriteBooks);
+console.log(bookshelf.favoriteBooks);
+console.log(bookshelf.favoriteBooks);

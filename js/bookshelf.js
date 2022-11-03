@@ -8,21 +8,21 @@ class Bookshelf {
     }
 
     /** addBook method pushes a book into the 
-    array of books and returns the array */
+    array of books and returns the array. */
     addBook(book) {
         this.books.push(book);
         return this.books;
     }
 
     /** addFavoriteBook method pushes a selected book 
-    into the array of favorite books and returns the array */
+    into the array of favorite books and returns the array. */
     addFavoriteBook(book) {
         this.favoriteBooks.push(book);
         return this.favoriteBooks;
     }
 
     /** removeFavoriteBook method iterates over array of favorite books
-    and removes book with same title as the selected book and returns the revised array */
+    and removes book with same title as the selected book and returns the revised array. */
     removeFavoriteBook(book) {
         for (let i = 0; i < this.favoriteBooks.length; i++) {
             if (this.favoriteBooks[i].title === book.title) {
@@ -32,14 +32,14 @@ class Bookshelf {
         return this.favoriteBooks;
     }
 
-    /** countFavorites method uses reduce method to count and return the number of favorite books */
+    /** countFavorites method uses reduce method to count and return the number of favorite books. */
     countFavorites() {
         const reduceFn = (acc) => acc + 1;
         return this.favoriteBooks.reduce(reduceFn, 0);
     }
-
+    
     /** sortTitleAscending method uses sort method to sort array of books by title 
-    in ascending order and return the same array */
+    in ascending order and return the same array. */
     sortTitleAscending() {
         return this.books.sort((a, b) => {
             var titleA = a.title.toLowerCase();
@@ -55,7 +55,7 @@ class Bookshelf {
     }
 
     /** sortTitleDescending method uses sort method to sort array of books by title 
-    in descending order and return the same array */
+    in descending order and return the same array. */
     sortTitleDescending() {
         return this.books.sort((a, b) => {
             var titleA = a.title.toLowerCase();
@@ -71,7 +71,7 @@ class Bookshelf {
     }
 
     /** sortAuthorAscending method uses sort method to sort array of books by author 
-    in ascending order and return the same array */
+    in ascending order and return the same array. */
     sortAuthorAscending() {
         return this.books.sort((a, b) => {
             if (a.author < b.author) {
@@ -85,7 +85,7 @@ class Bookshelf {
     }
 
     /** sortAuthorDescending method uses sort method to sort array of books by author 
-    in descending order and return the same array */
+    in descending order and return the same array. */
     sortAuthorDescending() {
         return this.books.sort((a, b) => {
             if (a.author > b.author) {
@@ -98,8 +98,8 @@ class Bookshelf {
         });
     }
 
-    /** sortNumTopicsAscending method uses sort method to sort array of books by number 
-    of topics in ascending order and return the same array */
+    /** sortNumTopicsAscending method uses sort method as well as reduce method to sort 
+    array of books by number of topics in ascending order and return the same array */
     sortNumTopicsAscending() {
         return this.books.sort((a, b) => {
             const reduceFn = (acc) => acc + 1;
@@ -109,8 +109,8 @@ class Bookshelf {
         })
     }
 
-    /** sortNumTopicsDescending method uses sort method to sort array of books by number 
-    of topics in descending order and return the same array */
+    /** sortNumTopicsDescending method uses sort method as well as reduce method to sort 
+    array of books by number of topics in descending order and return the same array */
     sortNumTopicsDescending() {
         return this.books.sort((a, b) => {
             const reduceFn = (acc) => acc + 1;
@@ -185,8 +185,8 @@ class Bookshelf {
         sortBy.append(dropDownList);
     }
 
-    /** renderSorted function to render DOM elements for sorted array of books 
-    and replace existing DOM elements for books */
+    /** renderSorted function is used to render DOM elements for sorted array of books 
+    and replace existing DOM elements for books with these new DOM elements */
     renderSorted() {
         const main = document.querySelector('main');
         const bookList = document.createElement('ul');
