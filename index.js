@@ -278,7 +278,7 @@ function submitButtonEvent() {
                 const comment = `${commentBoxes[i].value}`;
                 commentBoxes[i].value = '';
                 bookComments[i].textContent += ` "${comment}"`;
-                return bookshelf.books[i].comment.push(comment);
+                return bookshelf.books[i].comment.push(`"${comment}"`);
             }
         })
     }
