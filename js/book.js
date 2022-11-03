@@ -12,7 +12,33 @@ class Book {
         this.comment = [];
     }
 
-    /** Render function which creates and returns an element for each book
+    /** renderInfo() method creates elements to display each book's hidden information such as 
+    subject, language, and comments. The DOM elements are hidden when first rendered. */
+    renderInfo() {
+        const bookInfo = document.createElement('div');
+        bookInfo.className = 'bookInfo';
+        bookInfo.style.display = 'none';
+        
+        const bookLanguage = document.createElement('p');
+        bookLanguage.className = 'bookLanguage';
+        bookLanguage.textContent = `Language: ${this.language}`;
+        
+        const bookSubject = document.createElement('p');
+        bookSubject.className = 'bookSubject';
+        bookSubject.textContent = `Topics: ${this.subject}`;
+        
+        const bookComment = document.createElement('p');
+        bookComment.className = 'bookComment';
+        bookComment.textContent = `Comments: ${this.comment}`;
+
+        bookInfo.append(bookLanguage);
+        bookInfo.append(bookSubject);
+        bookInfo.append(bookComment);
+
+        return bookInfo;
+    }
+
+    /** render method creates and returns an element for each book
     and also creates child elements to display the title and author
     for each book. */
     render() {

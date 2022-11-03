@@ -128,15 +128,16 @@ class Bookshelf {
     from the render function under class Book 
     and appends it to the element created for list of books. */
     render() {
-        const bookList = document.querySelector('#bookList')
+        const bookList = document.querySelector('#bookList');
         
         /** refactored so map is used to generate DOM elements from array of books */
         this.books.map(book => {
-            bookList.append(book.render())
+            bookList.append(book.render());
+            bookList.append(book.renderInfo());
         })
 
         /** DOM element to display total number of favorite books */
-        const numFavorites = document.querySelector('#numFavorites')
+        const numFavorites = document.querySelector('#numFavorites');
         numFavorites.textContent = '0 LIKED';
 
         /** DOM elements created to display the sort by feature  with drop down list */
@@ -192,7 +193,8 @@ class Bookshelf {
         const bookList = document.createElement('ul');
         bookList.id = 'bookList';
         this.books.map(book => {
-            bookList.append(book.render())
+            bookList.append(book.render());
+            bookList.append(book.renderInfo());
         })
 
         main.replaceChild(bookList, main.firstElementChild);

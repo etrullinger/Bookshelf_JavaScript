@@ -219,6 +219,23 @@ h5 {
     font-weight: bold;
 }
 
+/* Styling for book info div. */
+.bookInfo {
+    border: 1px solid black;
+    background-color: antiquewhite;
+    font-family: Cambria, Cochin;
+    font-size: 0.85em;
+    max-width: 10em;
+    height: 15em;
+    padding: 0.5em;
+    margin-top: 2.5em;
+    overflow-y: scroll;
+}
+
+p {
+    padding: 0.5em;
+}
+
 /* Using nth-child() selector to set 7 different 
 colors for books depending on its position. */
 .bookDOM:nth-child(n+0) {

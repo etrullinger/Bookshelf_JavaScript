@@ -19,6 +19,35 @@ the appropriate DOM elements. */
 importBooks();
 bookshelf.render();
 
+/** bookInfoEvent function adds mouseover, mouseout, and click triggers to display information
+such as language, subjects, and comments on each book. */
+function bookInfoEvent() {
+    const bookTitleElements = document.querySelectorAll('h2');
+    const bookInfoElements = document.querySelectorAll('.bookInfo');
+    const bookElements = document.querySelectorAll('.bookDOM');
+    for (let i = 0; i < bookTitleElements.length; i++) {
+        bookTitleElements[i].addEventListener('mouseover', (event) => {
+            bookTitleElements[i].style.cursor = 'pointer';
+            bookElements[i].style.border = '3px solid black';
+        })
+        bookTitleElements[i].addEventListener('mouseout', (event) => {
+            bookElements[i].style.border = '1px solid black';
+        })
+        bookTitleElements[i].addEventListener('click', (event) => {
+            if (bookInfoElements[i].style.display === 'none') {
+                bookInfoElements[i].style.display = 'flex';
+                bookInfoElements[i].style.flexDirection = 'column';                
+            } else {
+                bookInfoElements[i].style.display = 'none';                
+            }
+        })
+    }
+}
+
+/** Execute bookInfoEvent function to add event listeners to book DOMs with respect
+to book info sections. */
+bookInfoEvent();
+
 /** favButtons function adds event listeners to all favorite buttons */
 function favButtons() {
     /** Return NodeList of all favorite buttons */
@@ -100,6 +129,7 @@ titleAscending.addEventListener('click', (event) => {
     bookshelf.renderSorted();
     favButtons();
     commentButtonEvent();
+    bookInfoEvent();
 });
 
 const titleDescending = document.querySelector('#titleDescending');
@@ -108,6 +138,7 @@ titleDescending.addEventListener('click', (event) => {
     bookshelf.renderSorted();
     favButtons();
     commentButtonEvent();
+    bookInfoEvent();
 })
 
 const authorAscending = document.querySelector('#authorAscending');
@@ -116,6 +147,7 @@ authorAscending.addEventListener('click', (event) => {
     bookshelf.renderSorted();
     favButtons();
     commentButtonEvent();
+    bookInfoEvent();
 })
 
 const authorDescending = document.querySelector('#authorDescending');
@@ -124,6 +156,7 @@ authorDescending.addEventListener('click', (event) => {
     bookshelf.renderSorted();
     favButtons();
     commentButtonEvent();
+    bookInfoEvent();
 })
 
 const numTopicsAscending = document.querySelector('#numTopicsAscending');
@@ -132,6 +165,7 @@ numTopicsAscending.addEventListener('click', (event) => {
     bookshelf.renderSorted();
     favButtons();
     commentButtonEvent();
+    bookInfoEvent();
 })
 
 const numTopicsDescending = document.querySelector('#numTopicsDescending');
@@ -140,6 +174,7 @@ numTopicsDescending.addEventListener('click', (event) => {
     bookshelf.renderSorted();
     favButtons();
     commentButtonEvent();
+    bookInfoEvent();
 })
 
 const titleInput = document.querySelector('#titleInput');
@@ -232,25 +267,20 @@ function removeCommentBox() {
 /** submitButtonEvent function iterates over buttons and adds event listener to the button
 that is displayed. User also can only submit if there is at least one character inputted in the 
 comment box. Once button is clicked comment is pushed to the array of comments for that particular book
-and comment box is reset to empty. */
+and comment box is reset to empty. Comment is also displayed to book info. */
 function submitButtonEvent() {
     const commentBoxes = document.querySelectorAll('.commentBox');
     const submitButtons = document.querySelectorAll('.submitButton');
+    const bookComments = document.querySelectorAll('.bookComment');
     for (let i = 0; i < submitButtons.length; i++) {
         submitButtons[i].addEventListener('click', (event) => {
             if (commentBoxes[i].style.display === 'flex' && commentBoxes[i].value.length > 0) {
                 const comment = `${commentBoxes[i].value}`;
                 commentBoxes[i].value = '';
+                bookComments[i].textContent += ` "${comment}"`;
                 return bookshelf.books[i].comment.push(comment);
             }
         })
     }
 }
 
-
-console.log(bookshelf.books);
-console.log(bookshelf.books);
-console.log(bookshelf.books);
-console.log(bookshelf.favoriteBooks);
-console.log(bookshelf.favoriteBooks);
-console.log(bookshelf.favoriteBooks);
