@@ -41,10 +41,47 @@ footer {
     padding-top: 3em;
 }
 
+/* Styling for add book section. */
+#addBookSection {
+    padding: 0.5em;
+    margin-bottom: 0.25em;
+}
+
+/* Styling for Add Book heading */
+#addBookHeading {
+    font-size: 0.5em;
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
 /* Styling for user input section to add books. */
 #inputFields {
-    display: inline-block;
-    padding: 0.5em;
+    display: flex;
+    flex-flow: wrap;
+}
+
+/* Styling for all child elements to add book section. */
+.addBookFieldItem {
+    margin: 0.5em;
+    border:2px solid black;
+    background-color: snow;
+    font-family: Cambria, Cochin;
+}
+
+/* Styling for add book button. */
+#addBookButton {
+    padding: 0.25em 0.75em;
+    font-weight: bold;
+    font-family: 'Playfair Display';
+}
+
+/* Styling for add book alert message. */
+#addBookAlert {
+    text-align: center;
+    font-size: 0.3em;
+    padding-top: 1em;
+    color:brown;
+    font-weight: bold;
 }
 
 /* Styling for main left section. */
@@ -71,6 +108,10 @@ footer {
     margin-bottom: 0.5em;
 }
 
+.navItem:hover {
+    background-color: whitesmoke;
+}
+
 /* Styling for navigation links. */
 a {
     color: black;
@@ -89,11 +130,6 @@ a:link {
     text-decoration: none;
 }
 
-/* Styling for links when cursor hovers over. */
-a:hover {
-    background-color: lightgray;
-}
-
 /* Styling for sort by div. */
 #sortBy {
     width: 10em;
@@ -106,11 +142,6 @@ a:hover {
     padding-bottom: 0.5em;
     background-color: lightgray;
     opacity: 0.8;
-}
-
-/* Styling for sort by hover. */
-#sortBy:hover {
-    background-color: lightgray;
 }
 
 /* Styling for the "shelf" of books. Using flex 
@@ -165,7 +196,7 @@ h5 {
     border: 2px solid ghostwhite;
 }
 
-/* Styling for comment button */
+/* Styling for comment button. */
 .commentButton {
     font-family: cambria;
     font-weight: bold;
@@ -175,8 +206,21 @@ h5 {
     border: 2px solid ghostwhite;
 }
 
+/* Styling for comment box. */
+.commentBox {
+    border: 2px dotted black;
+    font-family: Cambria, Cochin;
+    background-color: snow;
+}
+
+/* Styling for comment submit button. */
+.submitButton {
+    padding: 0.1em 0.25em;
+    font-weight: bold;
+}
+
 /* Using nth-child() selector to set 7 different 
-colors for books depending on its position */
+colors for books depending on its position. */
 .bookDOM:nth-child(n+0) {
     background-color:rosybrown;
 }

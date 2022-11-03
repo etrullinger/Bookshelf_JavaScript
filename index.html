@@ -11,13 +11,17 @@
 <body>
     <header>
         <h1>Bookshelf</h1>
-        <section id="inputFields">
-            <input placeholder="Enter Book Title" id="titleInput">
-            <input placeholder="Enter Author Last Name" id="authorLastNameInput">
-            <input placeholder="Enter Author First Name" id="authorFirstNameInput">
-            <input placeholder="Enter Subject(s)" id="subjectInput">
-            <input placeholder="Enter Language" id="languageInput">
-            <button id="addBookButton" type="submit">Add Book</button>
+        <section id="addBookSection">
+            <h4 id="addBookHeading">Add Your Book:</h4>
+            <section id="inputFields">
+                <input placeholder="Enter Book Title" class="addBookFieldItem addBookField" id="titleInput">
+                <input placeholder="Enter Author Last Name" class="addBookFieldItem addBookField" id="authorLastNameInput">
+                <input placeholder="Enter Author First Name" class="addBookFieldItem addBookField" id="authorFirstNameInput">
+                <input placeholder="Enter Subject(s)" class="addBookFieldItem addBookField" id="subjectInput">
+                <input placeholder="Enter Language" class="addBookFieldItem addBookField" id="languageInput">
+                <button class="addBookFieldItem" id="addBookButton" type="submit">Add Book</button>
+            </section>
+            <section id="addBookAlert"></section>
         </section>
     </header>
     <main>
@@ -25,7 +29,7 @@
         <section id = "mainLeft">
             <div id="numFavorites"></div>
             <ul id="navBar">
-                <li class="navItem"><a href="#inputFields">Add Book</a></li>
+                <li class="navItem"><a href="#addBookSection">Add Book</a></li>
                 <li class="navItem"><a href="#bookList">Bookshelf</a></li>
                 <li class="navItem"><a href="#contact">Contact</a></li>
             </ul>

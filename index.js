@@ -153,12 +153,19 @@ const addBookButton = document.querySelector('#addBookButton');
 DOM elements for the books are rendered again to account for the added book and the favorite button feature
 is added as well. First letters of author first and last name are capitalized while the rest of the letters
 are lower cased before book is rendered to maintain consistency for sorting purposes. Once added, the input values 
-for all fields will return back to empty. */
+for all fields will return back to empty. Every input field must have at least one character in order for the book
+to be submitted. */
 addBookButton.addEventListener('click', (event) => {
+    const addBookAlert = document.querySelector('#addBookAlert');
     const lastNameCapitalized = authorLastNameInput.value.charAt(0).toUpperCase() + authorLastNameInput.value.slice(1).toLowerCase();
     const firstNameCapitalized = authorFirstNameInput.value.charAt(0).toUpperCase() + authorFirstNameInput.value.slice(1).toLowerCase();
     const newBook = new Book([`${lastNameCapitalized}`, ' ' + `${firstNameCapitalized}`], `${languageInput.value}`, [`${subjectInput.value}`], `${titleInput.value}`);
-    bookshelf.addBook(newBook);
+    if (authorLastNameInput.value.length > 0 && authorFirstNameInput.value.length > 0 && languageInput.value.length > 0 && subjectInput.value.length > 0 && titleInput.value.length > 0) {
+        bookshelf.addBook(newBook);
+        addBookAlert.textContent = `${titleInput.value} added!`
+    } else {
+        addBookAlert.textContent = 'Please complete all fields.'
+    }
     authorLastNameInput.value = '';
     authorFirstNameInput.value = '';
     languageInput.value = '';
