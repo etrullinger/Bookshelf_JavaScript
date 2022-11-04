@@ -133,7 +133,6 @@ class Bookshelf {
         /** refactored so map is used to generate DOM elements from array of books */
         this.books.map(book => {
             bookList.append(book.render());
-            bookList.append(book.renderInfo());
         })
 
         /** DOM element to display total number of favorite books */
@@ -194,7 +193,6 @@ class Bookshelf {
         bookList.id = 'bookList';
         this.books.map(book => {
             bookList.append(book.render());
-            bookList.append(book.renderInfo());
         })
 
         main.replaceChild(bookList, main.firstElementChild);

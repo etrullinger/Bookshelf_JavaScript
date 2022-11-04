@@ -151,7 +151,7 @@ display to wrap items according to width of viewport. */
     flex-flow: wrap;
     flex-grow: 1;
     margin-left: 12em;
-    margin-right: 5em;
+    margin-right: 6.5em;
     max-width: 80vw;
 }
 
@@ -221,15 +221,16 @@ h5 {
 
 /* Styling for book info div. */
 .bookInfo {
+    position: relative;
+    left: -0.6em;
     border: 1px solid black;
     background-color: antiquewhite;
     font-family: Cambria, Cochin;
     font-size: 0.85em;
-    max-width: 10em;
-    height: 15em;
-    padding: 0.5em;
-    margin-top: 2.5em;
+    width: 16em;
+    height: 11em;
     overflow-y: scroll;
+    border: 1px dotted black;
 }
 
 p {

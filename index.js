@@ -19,35 +19,6 @@ the appropriate DOM elements. */
 importBooks();
 bookshelf.render();
 
-/** bookInfoEvent function adds mouseover, mouseout, and click triggers to display information
-such as language, subjects, and comments on each book. */
-function bookInfoEvent() {
-    const bookTitleElements = document.querySelectorAll('h2');
-    const bookInfoElements = document.querySelectorAll('.bookInfo');
-    const bookElements = document.querySelectorAll('.bookDOM');
-    for (let i = 0; i < bookTitleElements.length; i++) {
-        bookTitleElements[i].addEventListener('mouseover', (event) => {
-            bookTitleElements[i].style.cursor = 'pointer';
-            bookElements[i].style.border = '3px solid black';
-        })
-        bookTitleElements[i].addEventListener('mouseout', (event) => {
-            bookElements[i].style.border = '1px solid black';
-        })
-        bookTitleElements[i].addEventListener('click', (event) => {
-            if (bookInfoElements[i].style.display === 'none') {
-                bookInfoElements[i].style.display = 'flex';
-                bookInfoElements[i].style.flexDirection = 'column';                
-            } else {
-                bookInfoElements[i].style.display = 'none';                
-            }
-        })
-    }
-}
-
-/** Execute bookInfoEvent function to add event listeners to book DOMs with respect
-to book info sections. */
-bookInfoEvent();
-
 /** favButtons function adds event listeners to all favorite buttons */
 function favButtons() {
     /** Return NodeList of all favorite buttons */
@@ -211,6 +182,38 @@ addBookButton.addEventListener('click', (event) => {
     commentButtonEvent();
 })
 
+/** bookInfoEvent function adds mouseover triggers to display information
+such as language, subjects, and comments on each book and then hides the DOM element when mouseout. */
+function bookInfoEvent() {
+    const bookInfoElements = document.querySelectorAll('.bookInfo');
+    const bookElements = document.querySelectorAll('.bookDOM');
+    const commentButtons = document.querySelectorAll('.commentButton');
+    for (let i = 0; i < bookElements.length; i++) {
+        bookElements[i].addEventListener('mouseover', (event) => {
+            bookElements[i].style.cursor = 'pointer';
+            bookElements[i].style.color = 'snow';
+            bookInfoElements[i].style.display = 'flex';
+            bookInfoElements[i].style.flexDirection = 'column';
+            bookInfoElements[i].style.color = 'black';
+            if (commentButtons[i].style.backgroundColor === 'darkgray') {
+                bookInfoElements[i].style.position = 'relative';
+                bookInfoElements[i].style.top = '-25.55em';
+            } else {
+                bookInfoElements[i].style.position = 'relative';
+                bookInfoElements[i].style.top = '-18em';
+            }
+        })
+        bookElements[i].addEventListener('mouseout', (event) => {
+            bookElements[i].style.color = 'black';
+            bookInfoElements[i].style.display = 'none';
+        })
+    }
+}
+
+/** Execute bookInfoEvent function to add event listeners to book DOMs with respect
+to book info sections. */
+bookInfoEvent();
+
 /** commentButtonEvent function adds event listeners to all comment buttons. 
 Once button is clicked comment box and submit button appears. Styling of specific book element
 is also altered to allow room for the comment box. Comment box is limited to 280 characters and 
@@ -219,10 +222,11 @@ comment box and submit button disappears. removeCommentBox function is also adde
 are triggered so that only the target comment box will appear at a time. submitButtonEvent function is
 called and executed to add event listener to the submit button. */
 function commentButtonEvent() {
-    const books = document.querySelectorAll('.bookDOM');
+    const bookElements = document.querySelectorAll('.bookDOM');
     const commentButtons = document.querySelectorAll('.commentButton');
     const commentBoxes = document.querySelectorAll('.commentBox');
     const submitButtons = document.querySelectorAll('.submitButton');
+    const bookInfoElements = document.querySelectorAll('.bookInfo');
     for (let i = 0; i < commentButtons.length; i++) {
         commentButtons[i].addEventListener('click', (event) => {
             if (commentBoxes[i].style.display === 'none') {
@@ -237,10 +241,12 @@ function commentButtonEvent() {
                 commentBoxes[i].placeholder = 'Comment here';
                 submitButtons[i].style.display = 'flex';
                 submitButtons[i].textContent = 'Submit';
-                books[i].style.marginBottom = '6em';
+                bookElements[i].style.marginBottom = '6em';
                 submitButtonEvent();
             } else {
                 removeCommentBox();
+                bookInfoElements[i].style.position = 'relative';
+                bookInfoElements[i].style.top = '-18em';
             }
         })
     }
@@ -283,4 +289,3 @@ function submitButtonEvent() {
         })
     }
 }
-

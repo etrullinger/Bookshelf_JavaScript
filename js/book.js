@@ -12,32 +12,6 @@ class Book {
         this.comment = [];
     }
 
-    /** renderInfo() method creates elements to display each book's hidden information such as 
-    subject, language, and comments. The DOM elements are hidden when first rendered. */
-    renderInfo() {
-        const bookInfo = document.createElement('div');
-        bookInfo.className = 'bookInfo';
-        bookInfo.style.display = 'none';
-        
-        const bookLanguage = document.createElement('p');
-        bookLanguage.className = 'bookLanguage';
-        bookLanguage.textContent = `Language: ${this.language}`;
-        
-        const bookSubject = document.createElement('p');
-        bookSubject.className = 'bookSubject';
-        bookSubject.textContent = `Topics: ${this.subject}`;
-        
-        const bookComment = document.createElement('p');
-        bookComment.className = 'bookComment';
-        bookComment.textContent = `Comments: ${this.comment}`;
-
-        bookInfo.append(bookLanguage);
-        bookInfo.append(bookSubject);
-        bookInfo.append(bookComment);
-
-        return bookInfo;
-    }
-
     /** render method creates and returns an element for each book
     and also creates child elements to display the title and author
     for each book. */
@@ -71,6 +45,30 @@ class Book {
         commentButton.className = 'commentButton';
         commentButton.textContent = 'Comment';
 
+        /** A book info section outlining stored data on comments, language, and subjects
+        will be created. It will display when cursor hovers over the book list item. */
+        const bookInfo = document.createElement('div');
+        bookInfo.className = 'bookInfo';
+        bookInfo.style.display = 'none';
+        
+        const bookLanguage = document.createElement('p');
+        bookLanguage.className = 'bookLanguage';
+        bookLanguage.textContent = `Language: ${this.language}`;
+        
+        const bookComment = document.createElement('p');
+        bookComment.className = 'bookComment';
+        const commentDisplay = `${this.comment}`.split(',').join(', ');
+        bookComment.textContent = `Comments: ${commentDisplay}`;
+
+        const bookSubject = document.createElement('p');
+        bookSubject.className = 'bookSubject';
+        const subjectDisplay = `${this.subject}`.split(',').join(', ');
+        bookSubject.textContent = `Topics: ${subjectDisplay}`;
+
+        bookInfo.append(bookLanguage);
+        bookInfo.append(bookComment);
+        bookInfo.append(bookSubject);
+
         /** A comment box will be created along with comment button but will be 
         hidden until user clicks the comment button. */
         const commentBox = document.createElement('textarea');
@@ -91,6 +89,7 @@ class Book {
         book.append(commentButton);
         book.append(commentBox);
         book.append(submitButton);
+        book.append(bookInfo);
         
         return book;
     }
