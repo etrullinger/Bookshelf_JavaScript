@@ -57,7 +57,7 @@ class Book {
         
         const bookComment = document.createElement('p');
         bookComment.className = 'bookComment';
-        const commentDisplay = `${this.comment}`.split(',').join(', ');
+        const commentDisplay = `${this.comment}`.split(',').join(' ');
         bookComment.textContent = `Comments: ${commentDisplay}`;
 
         const bookSubject = document.createElement('p');
