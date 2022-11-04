@@ -45,6 +45,7 @@ footer {
 #addBookSection {
     padding: 0.5em;
     margin-bottom: 0.25em;
+    margin: 0 20% 0.25em 20%;
 }
 
 /* Styling for Add Book heading */
@@ -58,6 +59,7 @@ footer {
 #inputFields {
     display: flex;
     flex-flow: wrap;
+    justify-content: center;
 }
 
 /* Styling for all child elements to add book section. */
@@ -86,18 +88,27 @@ footer {
 
 /* Styling for main left section. */
 #mainLeft {
-    margin-left: 1em;
+    margin-left: 0.75em;
     position: fixed;
+    top: 20vh;
 }
 
 /* Styling for numFavorites div. */
 #numFavorites {
-    width: 8.25em;
-    height: 2em;
-    font-size: 1.25em;
+    width: 5em;
+    height: 1em;
+    font-size: 2em;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.25em;
+    padding-bottom: 0.25em;
+    padding-top: 0.15em;
+    font-family: Cambria, Cochin;
+    border: 2px dotted ghostwhite;
+    border-radius: 5%;
+    color: ghostwhite;
+    background-color: darkgoldenrod;
+    opacity: 0.8;
 }
 
 /* Styling for navigation bar divs. */

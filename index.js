@@ -35,6 +35,7 @@ function favButtons() {
             if (favButtons[i].textContent === 'LIKE') {
                 favButtons[i].textContent = 'UNLIKE';
                 favButtons[i].style.backgroundColor = 'darkgoldenrod';
+                favButtons[i].style.color = 'ghostwhite';
                 bookshelf.addFavoriteBook(bookshelf.books[i]);
                 const numFavorites = document.querySelector('#numFavorites');
                 const count = bookshelf.countFavorites();
@@ -44,6 +45,7 @@ function favButtons() {
             if (favButtons[i].textContent === 'UNLIKE') {
                 favButtons[i].textContent = 'LIKE';
                 favButtons[i].style.backgroundColor = 'gainsboro';
+                favButtons[i].style.color = 'black';
                 bookshelf.removeFavoriteBook(bookshelf.books[i]);
                 const numFavorites = document.querySelector('#numFavorites');
                 const count = bookshelf.countFavorites();
@@ -96,6 +98,7 @@ will be rendered and displayed. favButtons function as well as the commentButton
 and executed to add the event listeners to respective buttons. */
 const titleAscending = document.querySelector('#titleAscending');
 titleAscending.addEventListener('click', (event) => {
+    addBookAlert.textContent = '';
     bookshelf.sortTitleAscending();
     bookshelf.renderSorted();
     favButtons();
@@ -105,6 +108,7 @@ titleAscending.addEventListener('click', (event) => {
 
 const titleDescending = document.querySelector('#titleDescending');
 titleDescending.addEventListener('click', (event) => {
+    addBookAlert.textContent = '';    
     bookshelf.sortTitleDescending();
     bookshelf.renderSorted();
     favButtons();
@@ -114,6 +118,7 @@ titleDescending.addEventListener('click', (event) => {
 
 const authorAscending = document.querySelector('#authorAscending');
 authorAscending.addEventListener('click', (event) => {
+    addBookAlert.textContent = ''; 
     bookshelf.sortAuthorAscending();
     bookshelf.renderSorted();
     favButtons();
@@ -123,6 +128,7 @@ authorAscending.addEventListener('click', (event) => {
 
 const authorDescending = document.querySelector('#authorDescending');
 authorDescending.addEventListener('click', (event) => {
+    addBookAlert.textContent = ''; 
     bookshelf.sortAuthorDescending();
     bookshelf.renderSorted();
     favButtons();
@@ -132,6 +138,7 @@ authorDescending.addEventListener('click', (event) => {
 
 const numTopicsAscending = document.querySelector('#numTopicsAscending');
 numTopicsAscending.addEventListener('click', (event) => {
+    addBookAlert.textContent = ''; 
     bookshelf.sortNumTopicsAscending();
     bookshelf.renderSorted();
     favButtons();
@@ -141,6 +148,7 @@ numTopicsAscending.addEventListener('click', (event) => {
 
 const numTopicsDescending = document.querySelector('#numTopicsDescending');
 numTopicsDescending.addEventListener('click', (event) => {
+    addBookAlert.textContent = ''; 
     bookshelf.sortNumTopicsDescending();
     bookshelf.renderSorted();
     favButtons();
@@ -154,6 +162,7 @@ const authorFirstNameInput = document.querySelector('#authorFirstNameInput');
 const subjectInput = document.querySelector('#subjectInput');
 const languageInput = document.querySelector('#languageInput');
 const addBookButton = document.querySelector('#addBookButton');
+const addBookAlert = document.querySelector('#addBookAlert');
 
 /** Event listener is added to Add Book button to add book submitted by user to the book of arrays.
 DOM elements for the books are rendered again to account for the added book and the favorite button feature
@@ -168,7 +177,7 @@ addBookButton.addEventListener('click', (event) => {
     const newBook = new Book([`${lastNameCapitalized}`, ' ' + `${firstNameCapitalized}`], `${languageInput.value}`, [`${subjectInput.value}`], `${titleInput.value}`);
     if (authorLastNameInput.value.length > 0 && authorFirstNameInput.value.length > 0 && languageInput.value.length > 0 && subjectInput.value.length > 0 && titleInput.value.length > 0) {
         bookshelf.addBook(newBook);
-        addBookAlert.textContent = `${titleInput.value} added!`
+        addBookAlert.textContent = `"${titleInput.value}" was added to the bookshelf!`;
     } else {
         addBookAlert.textContent = 'Please complete all fields.'
     }
@@ -180,6 +189,7 @@ addBookButton.addEventListener('click', (event) => {
     bookshelf.renderSorted();
     favButtons();
     commentButtonEvent();
+    bookInfoEvent();
 })
 
 /** bookInfoEvent function adds mouseover triggers to display information
@@ -289,3 +299,9 @@ function submitButtonEvent() {
         })
     }
 }
+
+
+console.log(bookshelf.books);
+console.log(bookshelf.books);
+console.log(bookshelf.books);
+console.log(bookshelf.books);
