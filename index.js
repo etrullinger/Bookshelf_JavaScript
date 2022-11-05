@@ -29,9 +29,10 @@ const muteUnmute = document.querySelector('#muteUnmute');
 const main = document.querySelector('main');
 
 main.addEventListener('mousemove', (event) => {
+    music.load();
     music.play();
     playPause.textContent = 'Pause';
-    main.removeEventListener('mouseover', event)
+    main.removeEventListener('mouseover', event);
 });
 
 playPause.addEventListener('click', (event) => {
