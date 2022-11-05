@@ -38,6 +38,7 @@ class Book {
         } else {
             bookFavButton.textContent = 'UNLIKE';
             bookFavButton.style.backgroundColor = 'darkgoldenrod';
+            bookFavButton.style.color = 'ghostwhite';
         }
 
         /** A button to comment the book will be created for each book. */
