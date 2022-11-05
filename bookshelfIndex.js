@@ -304,7 +304,7 @@ function submitButtonEvent() {
 /** Harry Potter themed audio added to bookshelf page. 
 Set to autoplay and loop. Play/pause and mute/unmute buttons
 added to top left of page and event listeners added to them. */
-const music = document.querySelector('#harrypotteraudio');
+const music = document.querySelector('#hpchristmas');
 const playPause = document.querySelector('#playPause');
 const muteUnmute = document.querySelector('#muteUnmute');
 
