@@ -300,3 +300,28 @@ function submitButtonEvent() {
         })
     }
 }
+
+/** Harry Potter themed audio added to bookshelf page. 
+Set to autoplay and loop. Play/pause and mute/unmute buttons
+added to top left of page and event listeners added to them. */
+const music = document.querySelector('#harrypotteraudio');
+const playPause = document.querySelector('#playPause');
+const muteUnmute = document.querySelector('#muteUnmute');
+
+playPause.addEventListener('click', (event) => {
+    if (playPause.textContent === 'Play') {
+        playPause.textContent = 'Pause';
+        music.play();
+    } else {
+        playPause.textContent = 'Play';
+        music.pause();
+    }
+})
+
+muteUnmute.addEventListener('click', (event) => {
+    if (muteUnmute.textContent === 'Mute') {
+        muteUnmute.textContent = 'Unmute';
+    } else {
+        muteUnmute.textContent = 'Mute';
+    }
+})

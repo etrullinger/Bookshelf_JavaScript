@@ -140,7 +140,7 @@ label {
 #mainLeft {
     margin-left: 0.75em;
     position: fixed;
-    top: 20vh;
+    top: 22vh;
 }
 
 /* Styling for numFavorites div. */
@@ -326,4 +326,23 @@ colors for books depending on its position. */
 
 .bookDOM:nth-child(7n+0) {
     background-color: gainsboro;
+}
+
+/* Styling for audio control buttons */
+#audiocontrol {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 1vw;
+    top: 2vh;
+    width: 5em;
+}
+
+.audioButton {
+    margin: 0.25em;
+    height: 3em;
+    border: 2px solid black;
+    border-radius: 50%;
+    font-weight: bold;
+    font-family: Cambria;
 }
