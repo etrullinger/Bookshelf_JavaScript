@@ -205,6 +205,29 @@ a:link {
     opacity: 0.8;
 }
 
+/* Media rules added to fit content on smaller screens. */
+@media screen and (max-width: 750px) {
+    body {
+        display: block;
+    }
+    header {
+        display: block;
+        text-align: center;
+        padding-left: 1em;
+    }
+    footer {
+        display: block;
+        text-align: center;
+    }
+}
+
+@media screen and (max-height: 550px) {
+    #mainLeft{
+        position: fixed;
+        top: 40vh;
+    }
+}
+
 /* Styling for the "shelf" of books. Using flex 
 display to wrap items according to width of viewport. */
 #bookList {
@@ -328,7 +351,7 @@ colors for books depending on its position. */
     background-color: gainsboro;
 }
 
-/* Styling for audio control buttons */
+/* Styling for audio control buttons. */
 #audiocontrol {
     display: flex;
     flex-direction: column;
@@ -345,4 +368,5 @@ colors for books depending on its position. */
     border-radius: 50%;
     font-weight: bold;
     font-family: Cambria;
+    opacity: 0.8;
 }
