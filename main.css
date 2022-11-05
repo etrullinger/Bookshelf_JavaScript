@@ -69,12 +69,16 @@ h3 {
     flex-direction: column;
 }
 
+.registrationFormLine {
+    display: flex;
+    justify-content: right;
+}
+
 /* Styling for registration form labels. */
 label {
     font-family: Cambria, Cochin;
     font-weight: bold;
     margin: 0.5em;
-    text-align: right;
     white-space: nowrap;
 }
 

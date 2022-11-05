@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display" />
 </head>
 <body>
-    <audio id="harrypotteraudio" autoplay loop src="audio/HarryPotterIntroEffect.mp3" type="audio/mpeg"></audio>
+    <audio id="harrypotteraudio" src="audio/HarryPotterIntroEffect.mp3" type="audio/mpeg" loop></audio>
     <section id="audiocontrol">
-        <button class="audioButton" id="playPause">Pause</button>
+        <button class="audioButton" id="playPause">Play</button>
         <button class="audioButton" id="muteUnmute" onclick="document.querySelector('#harrypotteraudio').muted=!document.querySelector('#harrypotteraudio').muted">Mute</button>
     </section>
     <header>
@@ -22,25 +22,32 @@
         <form action="bookshelfIndex.html" method="get" id="registrationForm">
             <section id="registrationInputFields">
                 <div class="registrationFieldSection">
-                    <label for="firstName">First Name:</label>
-                    <label for="lastName">Last Name:</label>
-                    <label for="email">Email Address:</label>
-                    
+                    <span class="registrationFormLine">
+                        <label for="firstName">First Name:</label>
+                        <input placeholder="Enter First Name" class="registrationFieldItem registrationField" id="firstNameInput" required>
+                    </span>
+                    <span class="registrationFormLine">
+                        <label for="lastName">Last Name:</label>
+                        <input placeholder="Enter Last Name" class="registrationFieldItem registrationField" id="lastNameInput" required>
+                    </span>
+                    <span class="registrationFormLine">
+                        <label for="email">Email Address:</label>
+                        <input placeholder="Enter Email Address" class="registrationFieldItem registrationField" id="emailInput" required>
+                    </span>
                 </div>
                 <div class="registrationFieldSection">
-                    <input placeholder="Enter First Name" class="registrationFieldItem registrationField" id="firstNameInput" required>
-                    <input placeholder="Enter Last Name" class="registrationFieldItem registrationField" id="lastNameInput" required>
-                    <input placeholder="Enter Email Address" class="registrationFieldItem registrationField" id="emailInput" required>
-                </div>
-                <div class="registrationFieldSection">
-                    <label for="username">Create Username:</label>
-                    <label for="password">Choose Password:</label>
-                    <label for="passwordRepeat">Re-enter Password:</label>
-                </div>
-                <div class="registrationFieldSection">
-                    <input placeholder="Enter Username" class="registrationFieldItem registrationField" id="usernameInput" required>
-                    <input type="password" placeholder="8 characters minimum" class="registrationFieldItem registrationField" id="passwordInput" onkeyup="checkPassword(); return false;" pattern=".{8,}" required>
-                    <input type="password" placeholder="Password must match" class="registrationFieldItem registrationField" id="passwordRepeatInput" onkeyup="checkPassword(); return false;" required>
+                    <span class="registrationFormLine">
+                        <label for="username">Create Username:</label>
+                        <input placeholder="Enter Username" class="registrationFieldItem registrationField" id="usernameInput" required>    
+                    </span>
+                    <span class="registrationFormLine">
+                        <label for="password">Choose Password:</label>
+                        <input type="password" placeholder="8 characters minimum" class="registrationFieldItem registrationField" id="passwordInput" onkeyup="checkPassword(); return false;" pattern=".{8,}" required>    
+                    </span>
+                    <span class="registrationFormLine">
+                        <label for="passwordRepeat">Re-enter Password:</label>
+                        <input type="password" placeholder="Password must match" class="registrationFieldItem registrationField" id="passwordRepeatInput" onkeyup="checkPassword(); return false;" required>    
+                    </span>
                 </div>
             </section>
             <section id="registrationButtonSection">

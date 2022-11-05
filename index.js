@@ -26,6 +26,13 @@ added to top left of page and event listeners added to them. */
 const music = document.querySelector('#harrypotteraudio');
 const playPause = document.querySelector('#playPause');
 const muteUnmute = document.querySelector('#muteUnmute');
+const main = document.querySelector('main');
+
+main.addEventListener('mousemove', (event) => {
+    music.play();
+    playPause.textContent = 'Pause';
+    main.removeEventListener('mouseover', event)
+});
 
 playPause.addEventListener('click', (event) => {
     if (playPause.textContent === 'Play') {
