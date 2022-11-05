@@ -41,6 +41,18 @@ footer {
     padding-top: 3em;
 }
 
+/* Styling for registration form. */
+#registrationInputFields {
+    display: flex;
+    flex-direction: row;
+}
+
+/*Styling for registration form divs. */
+.registrationFieldSection {
+    display: flex;
+    flex-direction: column;
+}
+
 /* Styling for add book section. */
 #addBookSection {
     padding: 0.5em;
