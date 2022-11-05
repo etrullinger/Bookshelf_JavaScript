@@ -243,6 +243,7 @@ display to wrap items according to width of viewport. */
     margin-left: 12em;
     margin-right: 6.5em;
     max-width: 80vw;
+    min-width: 450px;
 }
 
 /* Styling for each book. */
