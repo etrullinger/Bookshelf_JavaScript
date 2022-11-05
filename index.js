@@ -28,17 +28,19 @@ on one of the input fields. */
 const music = document.querySelector('#harrypotteraudio');
 const playPause = document.querySelector('#playPause');
 const muteUnmute = document.querySelector('#muteUnmute');
-const inputFields = document.querySelectorAll('.registrationField');
+let inputFields = document.querySelectorAll('.registrationField');
 
 
 for (let i = 0; i < inputFields.length; i++) {
-    inputFields[i].addEventListener('click', function autoPlay() {
-        music.play();
-        playPause.textContent = 'Pause';
-        for (let i = 0; i < inputFields.length; i++) {
-            inputFields.removeEventListener('click', autoPlay)
-        };
-    });
+    inputFields[i].addEventListener('click', autoPlay);
+}
+
+function autoPlay() {
+    music.play();
+    playPause.textContent = 'Pause';
+    for (let i = 0; i < inputFields.length; i++) {
+        inputFields[i].removeEventListener('click', autoPlay);
+    }
 }
 
 playPause.addEventListener('click', (event) => {
