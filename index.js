@@ -28,11 +28,11 @@ const playPause = document.querySelector('#playPause');
 const muteUnmute = document.querySelector('#muteUnmute');
 const main = document.querySelector('main');
 
-main.addEventListener('mousemove', (event) => {
+main.addEventListener('mousemove', function autoPlay() {
     music.load();
     music.play();
     playPause.textContent = 'Pause';
-    main.removeEventListener('mousemove', event);
+    main.removeEventListener('mousemove', autoPlay);
 });
 
 playPause.addEventListener('click', (event) => {
