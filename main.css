@@ -41,16 +41,53 @@ footer {
     padding-top: 3em;
 }
 
+/* Styling for registration heading */
+h3 {
+    font-size: 0.9em;
+    padding: 0.2em 1em;
+    margin: 0.25em;
+    width: 100%;
+    text-align: center;
+    background-color: snow;
+    opacity: 0.5;
+}
+
 /* Styling for registration form. */
+#registrationForm {
+    margin: 4em;
+}
+
+/* Styling for registration input fields section. */
 #registrationInputFields {
     display: flex;
     flex-direction: row;
 }
 
-/*Styling for registration form divs. */
+/* Styling for registration form divs. */
 .registrationFieldSection {
     display: flex;
     flex-direction: column;
+}
+
+/* Styling for registration form labels. */
+label {
+    font-family: Cambria, Cochin;
+    font-weight: bold;
+    margin: 0.5em;
+    text-align: right;
+    white-space: nowrap;
+}
+
+#registrationButtonSection {
+    display: flex;
+    justify-content: center;
+    margin: 2em;
+}
+
+/* Styling for registration form button */
+#registerButton {
+    padding: 0.25em 0.5em;
+    font-weight: bold;
 }
 
 /* Styling for add book section. */
@@ -74,7 +111,8 @@ footer {
     justify-content: center;
 }
 
-/* Styling for all child elements to add book section. */
+/* Styling for all input field elements of add book section and registration form. */
+.registrationFieldItem,
 .addBookFieldItem {
     margin: 0.5em;
     border:2px solid black;

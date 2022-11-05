@@ -14,12 +14,12 @@
         <h3>Registration</h3>
     </header>
     <main>
-        <form action="bookshelfIndex.html" method="get" id="">
+        <form action="bookshelfIndex.html" method="get" id="registrationForm">
             <section id="registrationInputFields">
                 <div class="registrationFieldSection">
                     <label for="firstName">First Name:</label>
                     <label for="lastName">Last Name:</label>
-                    <label for="email">Email:</label>
+                    <label for="email">Email Address:</label>
                     
                 </div>
                 <div class="registrationFieldSection">
@@ -28,17 +28,19 @@
                     <input placeholder="Enter Email Address" class="registrationFieldItem registrationField" id="emailInput" required>
                 </div>
                 <div class="registrationFieldSection">
-                    <label for="username">Username:</label>
+                    <label for="username">Create Username:</label>
                     <label for="password">Choose Password:</label>
                     <label for="passwordRepeat">Re-enter Password:</label>
                 </div>
                 <div class="registrationFieldSection">
                     <input placeholder="Enter Username" class="registrationFieldItem registrationField" id="usernameInput" required>
-                    <input placeholder="8 characters minimum" class="registrationFieldItem registrationField" id="passwordInput" onkeyup="checkPassword(); return false;" pattern=".{8,}" required>
-                    <input placeholder="Password must match" class="registrationFieldItem registrationField" id="passwordRepeatInput" onkeyup="checkPassword(); return false;" required>
+                    <input type="password" placeholder="8 characters minimum" class="registrationFieldItem registrationField" id="passwordInput" onkeyup="checkPassword(); return false;" pattern=".{8,}" required>
+                    <input type="password" placeholder="Password must match" class="registrationFieldItem registrationField" id="passwordRepeatInput" onkeyup="checkPassword(); return false;" required>
                 </div>
             </section>
-            <input type="submit" value="Register Now">
+            <section id="registrationButtonSection">
+                <input type="submit" value="Register Now" class="registrationFieldItem" id="registerButton">
+            </section>
         </form>
     </main>
     <footer id="contact">

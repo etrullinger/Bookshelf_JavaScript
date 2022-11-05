@@ -300,9 +300,3 @@ function submitButtonEvent() {
         })
     }
 }
-
-
-console.log(bookshelf.books);
-console.log(bookshelf.books);
-console.log(bookshelf.books);
-console.log(bookshelf.books);
