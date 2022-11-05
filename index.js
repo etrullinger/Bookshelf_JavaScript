@@ -21,19 +21,25 @@ function checkPassword() {
 }
 
 /** Harry Potter themed audio added to registration page. 
-Set to autoplay and loop. Play/pause and mute/unmute buttons
-added to top left of page and event listeners added to them. */
+Set to loop once played. Play/pause and mute/unmute buttons
+added to top left of page and event listeners added to them. 
+addEventListener used to create an autoplay effect upon click event 
+on one of the input fields. */
 const music = document.querySelector('#harrypotteraudio');
 const playPause = document.querySelector('#playPause');
 const muteUnmute = document.querySelector('#muteUnmute');
-const main = document.querySelector('main');
+const inputFields = document.querySelectorAll('.registrationField');
 
-main.addEventListener('mousemove', function autoPlay() {
-    music.load();
-    music.play();
-    playPause.textContent = 'Pause';
-    main.removeEventListener('mousemove', autoPlay);
-});
+
+for (let i = 0; i < inputFields.length; i++) {
+    inputFields[i].addEventListener('click', function autoPlay() {
+        music.play();
+        playPause.textContent = 'Pause';
+        for (let i = 0; i < inputFields.length; i++) {
+            inputFields.removeEventListener('click', autoPlay)
+        };
+    });
+}
 
 playPause.addEventListener('click', (event) => {
     if (playPause.textContent === 'Play') {
