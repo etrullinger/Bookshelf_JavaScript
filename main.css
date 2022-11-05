@@ -52,11 +52,6 @@ h3 {
     opacity: 0.5;
 }
 
-/* Styling for registration form. */
-#registrationForm {
-    margin: 4em;
-}
-
 /* Styling for registration input fields section. */
 #registrationInputFields {
     display: flex;
