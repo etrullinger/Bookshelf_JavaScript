@@ -32,7 +32,7 @@ main.addEventListener('mousemove', (event) => {
     music.load();
     music.play();
     playPause.textContent = 'Pause';
-    main.removeEventListener('mouseover', event);
+    main.removeEventListener('mousemove', event);
 });
 
 playPause.addEventListener('click', (event) => {
