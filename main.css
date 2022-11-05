@@ -214,10 +214,16 @@ a:link {
     header {
         display: block;
         text-align: center;
+        min-width: fit-content;
     }
     footer {
         display: block;
         text-align: center;
+        min-width: fit-content;
+    }
+    #addBookSection {
+        display: block;
+        min-width: fit-content;
     }
 }
 
