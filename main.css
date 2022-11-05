@@ -44,8 +44,8 @@ footer {
 /* Styling for registration heading */
 h3 {
     font-size: 0.9em;
-    padding: 0.2em 0em;
-    margin: 0.25em 0;
+    padding: 0.2em 1em;
+    margin-top: 0.25em;
     width: 100%;
     text-align: center;
     background-color: snow;
@@ -209,6 +209,7 @@ a:link {
 @media screen and (max-width: 750px) {
     body {
         display: block;
+        min-width: fit-content;
     }
     header {
         display: block;
