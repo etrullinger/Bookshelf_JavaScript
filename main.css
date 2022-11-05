@@ -44,12 +44,17 @@ footer {
 /* Styling for registration heading */
 h3 {
     font-size: 0.9em;
-    padding: 0.2em 1em;
-    margin: 0.25em;
+    padding: 0.2em 0em;
+    margin: 0.25em 0;
     width: 100%;
     text-align: center;
     background-color: snow;
     opacity: 0.5;
+}
+
+/* Styling for registration form. */
+#registrationForm {
+    margin: 4em;
 }
 
 /* Styling for registration input fields section. */
@@ -208,7 +213,6 @@ a:link {
     header {
         display: block;
         text-align: center;
-        padding-left: 1em;
     }
     footer {
         display: block;
