@@ -82,7 +82,7 @@ label {
     white-space: nowrap;
 }
 
-#registrationField:focus {
+.registrationField:focus {
     outline: none;
 }
 
