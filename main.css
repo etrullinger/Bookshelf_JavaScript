@@ -82,6 +82,10 @@ label {
     white-space: nowrap;
 }
 
+#registrationField:focus {
+    outline: none;
+}
+
 #registrationButtonSection {
     display: flex;
     justify-content: center;
@@ -94,15 +98,57 @@ label {
     font-weight: bold;
 }
 
+/* Styling for search section. */
+#searchSection {
+    padding: 0 0.5em;
+    margin-top: 0.5em;
+}
+
+#searchBarSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0.25em;
+}
+
+/* Styling for search bar */
+#searchBar {
+    width: 45vw;
+    padding-left: 1em;
+    border: none;
+    border-top-left-radius: 5em;
+    border-bottom-left-radius: 5em;
+    height: 2em;
+    font-family: Cambria, Cochin;
+    background-color: snow;
+    box-shadow: 2em 1em 1.5em;
+}
+
+#searchBar:focus {
+    outline: none;
+}
+
+/* Styling for search button */
+#searchButton {
+    background-color: snow;
+    font-weight: bold;
+    padding: 0 0.75em;
+    border-top-right-radius: 5em;
+    border-bottom-right-radius: 5em;
+    border: none;
+    box-shadow: 1.5em 0.75em 1.35em;
+    cursor: pointer;
+}
+
 /* Styling for add book section. */
 #addBookSection {
     padding: 0.5em;
     margin-bottom: 0.25em;
     margin: 0 20% 0.25em 20%;
-    border: 1px solid black;
 }
 
-/* Styling for Add Book heading */
+/* Styling for Search and Add Book headings */
+#searchHeading,
 #addBookHeading {
     font-size: 0.5em;
     text-align: center;
@@ -125,9 +171,15 @@ label {
     font-family: Cambria, Cochin;
 }
 
+.addBookField {
+    height: 1.5em;
+    padding-left: 0.5em;
+}
+
 /* Styling for add book button. */
 #addBookButton {
-    padding: 0.25em 0.75em;
+    padding: 0 0.75em;
+    height: 1.75em;
     font-weight: bold;
     font-family: 'Playfair Display';
 }

@@ -17,20 +17,23 @@
     <header>
         <h1>Bookshelf</h1>
         <section id="searchSection">
-            <input placeholder="Search by Author, Book Title, or Topic" id="searchBar">
-            <button id="searchButton" type="submit">Search</button>
+            <h4 id="searchHeading">Search A Book:</h4>
+            <div id="searchBarSection">
+                <input placeholder="Search by Author, Book Title, or Topic" id="searchBar">
+                <button id="searchButton" type="submit">Search</button>
+            </div>
         </section>
         <section id="addBookSection">
             <h4 id="addBookHeading">Add Your Book:</h4>
-            <section id="inputFields">
+            <div id="inputFields">
                 <input placeholder="Enter Book Title" class="addBookFieldItem addBookField" id="titleInput">
                 <input placeholder="Enter Author Last Name" class="addBookFieldItem addBookField" id="authorLastNameInput">
                 <input placeholder="Enter Author First Name" class="addBookFieldItem addBookField" id="authorFirstNameInput">
                 <input placeholder="Enter Subject(s)" class="addBookFieldItem addBookField" id="subjectInput">
                 <input placeholder="Enter Language" class="addBookFieldItem addBookField" id="languageInput">
                 <button class="addBookFieldItem" id="addBookButton" type="submit">Add Book</button>
-            </section>
-            <section id="addBookAlert"></section>
+            </div>
+            <div id="addBookAlert"></div>
         </section>
     </header>
     <main>
