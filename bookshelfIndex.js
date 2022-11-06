@@ -301,6 +301,33 @@ function submitButtonEvent() {
     }
 }
 
+/** Event listener is added to search button to trigger a series of events once clicked.
+User should be able to search books by title, author, and topics. In order to compare one string
+to another, the event function joins all elements without spaces or commas as needed and lowercases the 
+strings as well. The strings for the authors' names are also manipulated to be able to compare
+by first name, last name, or first name with last name. The filter method is used to set the filtered books 
+array as the array the filter method returns. Then filtered books are rendered, and favButtons, commentButtonEvent,
+and bookInfoEvent functions are called and executed. */
+const searchBar = document.querySelector('#searchBar');
+const searchButton = document.querySelector('#searchButton');
+
+searchButton.addEventListener('click', (event) => {
+    let searchInput = searchBar.value.toLowerCase().split(' ').join('');
+    bookshelf.filteredBooks = bookshelf.books.filter(book => {
+        let author = `${book.author}`.split(', ');
+        let authorFirstName = `${author[1]}`.toLowerCase();
+        let authorLastName = `${author[0]}`.toLowerCase();
+        let authorFullName = authorFirstName + authorLastName;
+        let title = book.title.split(' ').join('').toLowerCase();
+        let topics = book.subject.join().split(' ').join('').toLowerCase();
+        return authorFirstName.includes(searchInput) || authorLastName.includes(searchInput) || authorFullName.includes(searchInput) || title.includes(searchInput) || topics.includes(searchInput);
+    })
+    bookshelf.renderFiltered();
+    favButtons();
+    commentButtonEvent();
+    bookInfoEvent();
+})
+
 /** Harry Potter themed audio added to bookshelf page. 
 Set to autoplay and loop. Play/pause and mute/unmute buttons
 added to top left of page and event listeners added to them. */

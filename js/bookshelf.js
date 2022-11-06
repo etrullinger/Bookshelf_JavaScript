@@ -5,6 +5,7 @@ class Bookshelf {
         this.books = [];
         /** array of favorite books */
         this.favoriteBooks = [];
+        this.filteredBooks = [];
     }
 
     /** addBook method pushes a book into the 
@@ -185,13 +186,26 @@ class Bookshelf {
         sortBy.append(dropDownList);
     }
 
-    /** renderSorted function is used to render DOM elements for sorted array of books 
+    /** renderSorted method is used to render DOM elements for sorted array of books 
     and replace existing DOM elements for books with these new DOM elements */
     renderSorted() {
         const main = document.querySelector('main');
         const bookList = document.createElement('ul');
         bookList.id = 'bookList';
         this.books.map(book => {
+            bookList.append(book.render());
+        })
+
+        main.replaceChild(bookList, main.firstElementChild);
+    }
+
+    /** renderFiltered method is used to render DOM elements for filtered array of 
+    books and replace existing DOM elements for books with these new DOM elements. */
+    renderFiltered() {
+        const main = document.querySelector('main');
+        const bookList = document.createElement('ul');
+        bookList.id = 'bookList';
+        this.filteredBooks.map(book => {
             bookList.append(book.render());
         })
 
