@@ -169,6 +169,7 @@ label {
     border:2px solid black;
     background-color: snow;
     font-family: Cambria, Cochin;
+    box-shadow: 1em 0.75em 1.25em;
 }
 
 .addBookField {
@@ -312,6 +313,7 @@ display to wrap items according to width of viewport. */
     padding: 0.5em;
     border: 1px solid black;
     border-radius: 1em;
+    box-shadow: 1.5em 1em 2em;
 }
 
 /* Styling for title section of each book. Using
@@ -359,12 +361,15 @@ h5 {
     border: 2px dotted black;
     font-family: Cambria, Cochin;
     background-color: snow;
+    box-shadow: 1.5em 1em 2em;
+    position: relative;
 }
 
 /* Styling for comment submit button. */
 .submitButton {
     padding: 0.1em 0.25em;
     font-weight: bold;
+    position: relative;
 }
 
 /* Styling for book info div. */
@@ -379,6 +384,7 @@ h5 {
     height: 11em;
     overflow-y: scroll;
     border: 1px dotted black;
+    box-shadow: 1.5em 1em 2em;
 }
 
 p {
